@@ -1,0 +1,370 @@
+mysql> select job, sum(salary)  from employees  group by job  having  sum(salary) > 30000 ;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| President |       50000 |
+| Manager   |       69000 |
+| Developer |       46000 |
+| Tester    |       39000 |
++-----------+-------------+
+4 rows in set (0.01 sec)
+
+mysql> select job, sum(salary)  from employees where job != 'President'  group by job  having  sum(salary) > 30000 ;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| Manager   |       69000 |
+| Developer |       46000 |
+| Tester    |       39000 |
++-----------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select job, sum(salary)  from employees where job != 'President'  group by job  having  sum(salary) > 30000  order by job asc;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| Developer |       46000 |
+| Manager   |       69000 |
+| Tester    |       39000 |
++-----------+-------------+
+3 rows in set (0.01 sec)
+
+mysql> select job, sum(salary)  from employees where job != 'President'  group by job  having  sum(salary) > 30000  order by sum(salary) asc;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| Tester    |       39000 |
+| Developer |       46000 |
+| Manager   |       69000 |
++-----------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select job,salary from employees where job !='President';
++-----------+--------+
+| job       | salary |
++-----------+--------+
+| Manager   |  37000 |
+| Manager   |  32000 |
+| Developer |  22000 |
+| Developer |  24000 |
+| Tester    |  20000 |
+| Tester    |  19000 |
+| Clerk     |   7000 |
+| salesman  |   5000 |
+| Intern    |      0 |
++-----------+--------+
+9 rows in set (0.00 sec)
+
+mysql> select job,salary from employees where job !='President' group by job;
+ERROR 1055 (42000): Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'hexaware_db.employees.Salary' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select job,sum(salary) from employees where job !='President' group by job;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| Manager   |       69000 |
+| Developer |       46000 |
+| Tester    |       39000 |
+| Clerk     |        7000 |
+| salesman  |        5000 |
+| Intern    |           0 |
++-----------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> select job,sum(salary) from employees where job !='President' group by job having sum(salary) > 30000;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| Manager   |       69000 |
+| Developer |       46000 |
+| Tester    |       39000 |
++-----------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select job, sum(salary)  from employees where job != 'President'  group by job  having  sum(salary) > 30000  order by job asc;
++-----------+-------------+
+| job       | sum(salary) |
++-----------+-------------+
+| Developer |       46000 |
+| Manager   |       69000 |
+| Tester    |       39000 |
++-----------+-------------+
+3 rows in set (0.00 sec)
+
+
+
+
+
+
+
+Operators and Functions:
+
+
+
+mysql> SELECT * FROM EMPLOYEES  LIMIT 3;
++-----+-------+--------+------+-----------+------------+------+------+
+| Eid | EName | Salary | Comm | Job       | DOJ        | Mid  | dno  |
++-----+-------+--------+------+-----------+------------+------+------+
+| 101 | King  |  50000 | NULL | President | 2021-09-12 | NULL |   10 |
+| 102 | Smith |  37000 | NULL | Manager   | 2021-12-01 |  101 |   10 |
+| 103 | Ford  |  32000 | NULL | Manager   | 2022-04-15 |  101 |   20 |
++-----+-------+--------+------+-----------+------------+------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employees where  doj  LIKE  '2022%' LIMIT 1;
++-----+-------+--------+------+---------+------------+------+------+
+| Eid | EName | Salary | Comm | Job     | DOJ        | Mid  | dno  |
++-----+-------+--------+------+---------+------------+------+------+
+| 103 | Ford  |  32000 | NULL | Manager | 2022-04-15 |  101 |   20 |
++-----+-------+--------+------+---------+------------+------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT CURRENT_DATE DUAL;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DUAL' at line 1
+mysql> SELECT CURRENT_DATE FROM DUAL;
++--------------+
+| CURRENT_DATE |
++--------------+
+| 2024-01-11   |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT 1+2  FROM DUAL;
++-----+
+| 1+2 |
++-----+
+|   3 |
++-----+
+1 row in set (0.01 sec)
+
+mysql> SELECT CURRENT_TIME FROM DUAL;
++--------------+
+| CURRENT_TIME |
++--------------+
+| 10:27:34     |
++--------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT NOW FROM DUAL;
+ERROR 1054 (42S22): Unknown column 'NOW' in 'field list'
+mysql> SELECT NOW() FROM DUAL;
++---------------------+
+| NOW()               |
++---------------------+
+| 2024-01-11 10:27:50 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT   EXTRACT(month from  '2024-01-11')  from DUAL;
++-----------------------------------+
+| EXTRACT(month from  '2024-01-11') |
++-----------------------------------+
+|                                 1 |
++-----------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT   EXTRACT(month from  '2024-01-11')  value  from DUAL;
++-------+
+| value |
++-------+
+|     1 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT   EXTRACT(MM from  '2024-01-11')  value  from DUAL;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'MM from  '2024-01-11')  value  from DUAL' at line 1
+mysql> SELECT   EXTRACT(mm from  '2024-01-11')  value  from DUAL;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mm from  '2024-01-11')  value  from DUAL' at line 1
+mysql> SELECT   EXTRACT(YEAR from  '2024-01-11')  value  from DUAL;
++-------+
+| value |
++-------+
+|  2024 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT   EXTRACT(DAY from  '2024-01-11')  value  from DUAL;
++-------+
+| value |
++-------+
+|    11 |
++-------+
+1 row in set (0.00 sec)
+
+mysql> SELECT ename from employees;
++--------+
+| ename  |
++--------+
+| King   |
+| Smith  |
+| Ford   |
+| Adam   |
+| Tom    |
+| Ravi   |
+| Jerry  |
+| Raju   |
+| babu   |
+| javeed |
++--------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT  UPPER(ename) from employees;
++--------------+
+| UPPER(ename) |
++--------------+
+| KING         |
+| SMITH        |
+| FORD         |
+| ADAM         |
+| TOM          |
+| RAVI         |
+| JERRY        |
+| RAJU         |
+| BABU         |
+| JAVEED       |
++--------------+
+10 rows in set (0.01 sec)
+
+mysql> SELECT  CONCAT('MR. ',ename) from employees;
++----------------------+
+| CONCAT('MR. ',ename) |
++----------------------+
+| MR. King             |
+| MR. Smith            |
+| MR. Ford             |
+| MR. Adam             |
+| MR. Tom              |
+| MR. Ravi             |
+| MR. Jerry            |
+| MR. Raju             |
+| MR. babu             |
+| MR. javeed           |
++----------------------+
+10 rows in set (0.01 sec)
+
+mysql> SELECT  reserve(ename) from employees;
+ERROR 1305 (42000): FUNCTION hexaware_db.reserve does not exist
+mysql> SELECT  reverse(ename) from employees;
++----------------+
+| reverse(ename) |
++----------------+
+| gniK           |
+| htimS          |
+| droF           |
+| madA           |
+| moT            |
+| ivaR           |
+| yrreJ          |
+| ujaR           |
+| ubab           |
+| deevaj         |
++----------------+
+10 rows in set (0.01 sec)
+
+mysql> SELECT  reverse('husnuddin') from employees;
++----------------------+
+| reverse('husnuddin') |
++----------------------+
+| niddunsuh            |
+| niddunsuh            |
+| niddunsuh            |
+| niddunsuh            |
+| niddunsuh            |
+| niddunsuh            |
+| niddunsuh            |
+| niddunsuh            |
+| niddunsuh            |
+| niddunsuh            |
++----------------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT  reverse('husnuddin') from dual;
++----------------------+
+| reverse('husnuddin') |
++----------------------+
+| niddunsuh            |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select  ename, comm from employees;
++--------+------+
+| ename  | comm |
++--------+------+
+| King   | NULL |
+| Smith  | NULL |
+| Ford   | NULL |
+| Adam   | 1500 |
+| Tom    | 1000 |
+| Ravi   | 3000 |
+| Jerry  | 3000 |
+| Raju   | 2000 |
+| babu   | NULL |
+| javeed | 5000 |
++--------+------+
+10 rows in set (0.00 sec)
+
+mysql> select  ename, coalesce(comm,0)  from employees;
++--------+------------------+
+| ename  | coalesce(comm,0) |
++--------+------------------+
+| King   |                0 |
+| Smith  |                0 |
+| Ford   |                0 |
+| Adam   |             1500 |
+| Tom    |             1000 |
+| Ravi   |             3000 |
+| Jerry  |             3000 |
+| Raju   |             2000 |
+| babu   |                0 |
+| javeed |             5000 |
++--------+------------------+
+10 rows in set (0.00 sec)
+
+mysql> select  ename, coalesce(comm,0)  from employees;
++--------+------------------+
+| ename  | coalesce(comm,0) |
++--------+------------------+
+| King   |                0 |
+| Smith  |                0 |
+| Ford   |                0 |
+| Adam   |             1500 |
+| Tom    |             1000 |
+| Ravi   |             3000 |
+| Jerry  |             3000 |
+| Raju   |             2000 |
+| babu   |                0 |
+| javeed |             5000 |
++--------+------------------+
+10 rows in set (0.00 sec)
+
+mysql> select   GREATEST(3,4,1,5,7) FROM DUAL;
++---------------------+
+| GREATEST(3,4,1,5,7) |
++---------------------+
+|                   7 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select   GREATEST(COMM,SALARY) FROM DUAL;
+ERROR 1054 (42S22): Unknown column 'COMM' in 'field list'
+mysql> select   GREATEST(COMM,SALARY) FROM EMPLOYEES;
++-----------------------+
+| GREATEST(COMM,SALARY) |
++-----------------------+
+|                  NULL |
+|                  NULL |
+|                  NULL |
+|                 22000 |
+|                 24000 |
+|                 20000 |
+|                 19000 |
+|                  7000 |
+|                  NULL |
+|                  5000 |
++-----------------------+
+10 rows in set (0.00 sec)
+
+
+
+
+
+

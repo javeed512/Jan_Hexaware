@@ -1,0 +1,433 @@
+SQL Database:
+=============
+Databases are use to store data in structural format like in form of Tables.
+
+In today's time  we need some permanent storages for Backend Applications.
+Ex: Java Applications , Python Apps, C++ Softwares ... 
+
+DBMS: Database Management System / Digital System to manage data in tabular/structural formats.
+
+Examples: 
+Oracle, MySQL , Postgres , MS SQL , DB2 , H2 , MariaDB ....
+
+Student
+
+sid     sname  fee    age
+--------------------------
+101     rock   80000    30  
+
+
+
+Data types:
+------------
+INTEGER , VARCHAR , CHAR , DATE ,DATETIME , BOOLEAN , DECIMAL
+
+
+sid  integer(4)  _ _ _ _
+sname  varchar(10)  t o m _ _ _ _ _ _ _   ==> tom
+date
+
+
+SQL:
+----
+Structural Query Language 
+                                          
+DDL: Data Defination Lang
+
+CREATE , ALTER , DROP , TRUNCATE 
+
+
+DML: Data Manipulation Lang
+
+INSERT , UPDATE , DELETE 
+
+DRL/DQL: Data Retrieval Lang
+
+DCL: Data Control Lang
+
+GRANT , REVOKE  
+
+DCL is used for granting or revoking permissions by the admin to the users.
+
+GRANT Employees  to  user-1 SELECT,INSERT,UPDATE;
+REVOKE  Employees from user-1 INSERT,UPDATE;
+
+
+TCL: Transaction Control Lang
+
+COMMIT,ROLLBACK , SAVEPOINT
+
+
+
+Start Transaction; // transaction begins
+
+insert1
+insert2
+insert3
+
+savepoint s1;
+
+update1
+update2
+update3 
+
+rollback s1;
+
+commit;
+
+
+
+
+
+
+
+DDL Commands:
+
+All DDL commands are auto-commit;
+
+Creating Database:
+-------------------
+CREATE DATABASE   database_name;
+
+SHOW Databases;
+
+Use/Switch to any database
+---------------------------
+use database_name;
+
+
+PRIMARY KEY = NOT NULL + UNIQUE
+
+CREATE:
+-------
+
+ CREATE TABLE  Employees(
+		Eid INTEGER(3)  PRIMARY KEY  ,
+		 EName VARCHAR(20) NOT NULL,
+		  Salary DOUBLE,
+                  Comm  DOUBLE ,
+		  Job  VARCHAR(20),
+		  DOJ   DATE
+ );
+
+ALTER:
+------
+
+	options:  ADD,MODIFY,DROP
+
+  
+  ALTER TABLE  Employees ADD Mid Integer(3);
+
+  ALTER TABLE Employees  MODIFY(EName varchar(30));
+
+  ALTER TABLE Employees DROP Column  Job;
+	
+  ALTER TABLE Employees DROP constraint pk1;
+
+
+DROP:
+-----
+DROP TABLE  table_name;
+
+TRUNCATE:
+----------
+Table schema will remain same but only records get clear/deleted.
+
+TRUNCATE Table  Employees;
+
+
+DML:
+INSERT, UPDATE , DELETE
+
+INSERT INTO table_name   values(value1,value2,value3....);
+
+Employees Records:
+=====================
+
+mysql> INSERT INTO Employees   values(101,'King',50000,null,'President','2021-09-12',null);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO Employees   values(102,'Smith',30000,null,'Manager','2021-12-01',101);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees   values(103,'Ford',32000,null,'Manager','2022-04-15',101);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees   values(104,'Adam',22000,1500,'Developer','2022-06-19',102);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees   values(105,'Tom',24000,1000,'Developer','2022-02-12',102);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees   values(106,'Ravi',20000,3000,'Tester','2022-05-29',103);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees   values(107,'Jerry',19000,3000,'Tester','2022-11-02',103);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employees   values(108,'Raju',7000,2000,'Clerk',CURRENT_DATE,101);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM EMPLOYEES;
+
+ 
+
+UPDATE:
+
+Update Employees  SET Salary = 37000 where eid = 102;
+
+DELETE:
+Delete from Employees where eid = 110;
+
+
+
+
+
+
+JOINS:
+======
+In SQL Joins are used to fetch data from multiple tables.
+It is possible with the help of a common columns in both the tables.
+Note: Common column means column with same data types and values. Names need not to be same.
+
+Types of JOINS:
+===============
+1. Equi Joins  / Inner Joins / Natural Joins
+
+Equi Join:
+ select  eid,ename,salary,job,d.dno,dname,location  from   employees e, dept  d  where e.dno = d.dno  ;  
+
+
+Inner Join:
+
+ select eid,ename,salary,d.dno,dname   from employees e inner join dept d where e.dno = d.dno;
+
+Natural Join:
+
+select eid, ename,salary , dno ,dname from employees natural join dept;
+
+2. Non-Equi Joins
+select  eid,ename,salary,job,d.dno,dname,location  from   employees e, dept  d 
+ where e.dno != d.dno  ; 
+
+
+3. Self Joins
+
+SELECT  e.eid,e.ename,e.salary  , m.eid,m.ename,m.salary  , m.mid  from employees e , employees m  where e.mid = m.eid;
+
+
+4. Outer Joins
+
+
+LEFT OUTER JOIN
+ select  eid,ename,salary,job,d.dno,dname,location  from   employees e LEFT OUTER JOIN  dept  d  ON e.dno = d.dno  ;
+
+
+RIGHT OUTER JOIN
+select  eid,ename,salary,job,d.dno,dname,location  from   employees e RIGHT OUTER JOIN  dept  d  ON e.dno = d.dno  ;
+
+FULL OUTER JOIN  using UNION:
+
+    select  eid,ename,d.dno  from employees e  left outer join  dept d on e.dno = d.dno
+    -> UNION
+    -> select  eid,ename,d.dno  from employees e  right outer join  dept d on e.dno = d.dno;
+
+
+
+
+mysql> CREATE TABLE DEPT(Dno Integer(2)  , DName Varchar(20) , Location Varchar(30) , CONSTRAINT DEPT_DNO_PK PRIMARY KEY(DNO));
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+mysql> ALTER TABLE DEPT DROP CONSTRAINT DEPT_DNO_PK;
+
+RDBMS:
+=====
+primary key  ---> foreign key
+
+unique   ---> foreign key
+
+
+update  employees set  dno = 10 where eid = 101 or eid = 102 or eid = 104 or eid =105;
+
+update  employees  set  dno = 10 where eid IN (101,102,104,105);
+
+
+
+SUB Queries:
+
+Sub Query is nothing but Inner Query/Nested Query.
+In this inner most query will get execute first who's output will be consider as input to the outer query.
+
+When to use Sub Query:
+1. When we know the condition but don't know exact value.
+2. When we want to fetch data from one table but required condition exists in another table.
+
+Note: What ever operations we can perform with sub queries , we can perform those operations using joins also and vice versa.
+
+
+Single Row Operators:
+ = , !=  , >  , <  , =>  <= 
+
+Multi Row Operators:
+IN , ANY , ALL 
+
+
+
+
+
+
+sub query examples:
+====================
+
+
+
+
+
+mysql> select * from employees  where salary >  (select salary from employees where ename = 'Tom');
++-----+-------+--------+------+-----------+------------+------+------+
+| Eid | EName | Salary | Comm | Job       | DOJ        | Mid  | dno  |
++-----+-------+--------+------+-----------+------------+------+------+
+| 101 | King  |  50000 | NULL | President | 2021-09-12 | NULL |   10 |
+| 102 | Smith |  37000 | NULL | Manager   | 2021-12-01 |  101 |   10 |
+| 103 | Ford  |  32000 | NULL | Manager   | 2022-04-15 |  101 |   20 |
++-----+-------+--------+------+-----------+------------+------+------+
+3 rows in set (0.01 sec)
+
+mysql> select doj from employees where  ename = 'javeed';
++------------+
+| doj        |
++------------+
+| 2024-01-10 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select * from employeess where doj < (select doj from employees where  ename = 'javeed');
+ERROR 1146 (42S02): Table 'hexaware_db.employeess' doesn't exist
+mysql> select * from employees where doj < (select doj from employees where  ename = 'javeed');
++-----+-------+--------+------+-----------+------------+------+------+
+| Eid | EName | Salary | Comm | Job       | DOJ        | Mid  | dno  |
++-----+-------+--------+------+-----------+------------+------+------+
+| 101 | King  |  50000 | NULL | President | 2021-09-12 | NULL |   10 |
+| 102 | Smith |  37000 | NULL | Manager   | 2021-12-01 |  101 |   10 |
+| 103 | Ford  |  32000 | NULL | Manager   | 2022-04-15 |  101 |   20 |
+| 104 | Adam  |  22000 | 1500 | Developer | 2022-06-19 |  102 |   10 |
+| 105 | Tom   |  24000 | 1000 | Developer | 2022-02-12 |  102 |   10 |
+| 106 | Ravi  |  20000 | 3000 | Tester    | 2022-05-29 |  103 |   20 |
+| 107 | Jerry |  19000 | 3000 | Tester    | 2022-11-02 |  103 |   20 |
++-----+-------+--------+------+-----------+------------+------+------+
+7 rows in set (0.00 sec)
+
+mysql> select * from employees where dno = (select dno from dept where location = 'Hyderabad');
++-----+-------+--------+------+-----------+------------+------+------+
+| Eid | EName | Salary | Comm | Job       | DOJ        | Mid  | dno  |
++-----+-------+--------+------+-----------+------------+------+------+
+| 101 | King  |  50000 | NULL | President | 2021-09-12 | NULL |   10 |
+| 102 | Smith |  37000 | NULL | Manager   | 2021-12-01 |  101 |   10 |
+| 104 | Adam  |  22000 | 1500 | Developer | 2022-06-19 |  102 |   10 |
+| 105 | Tom   |  24000 | 1000 | Developer | 2022-02-12 |  102 |   10 |
++-----+-------+--------+------+-----------+------------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employees where dno = (select dno from dept where location = 'Hyderabad' OR location = 'Pune');
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql>  (select dno from dept where location = 'Hyderabad' OR location = 'Pune');
++-----+
+| dno |
++-----+
+|  10 |
+|  30 |
++-----+
+2 rows in set (0.00 sec)
+
+mysql> select * from employees where dno IN (select dno from dept where location = 'Hyderabad' OR location = 'Pune');
++-----+-------+--------+------+-----------+------------+------+------+
+| Eid | EName | Salary | Comm | Job       | DOJ        | Mid  | dno  |
++-----+-------+--------+------+-----------+------------+------+------+
+| 101 | King  |  50000 | NULL | President | 2021-09-12 | NULL |   10 |
+| 102 | Smith |  37000 | NULL | Manager   | 2021-12-01 |  101 |   10 |
+| 104 | Adam  |  22000 | 1500 | Developer | 2022-06-19 |  102 |   10 |
+| 105 | Tom   |  24000 | 1000 | Developer | 2022-02-12 |  102 |   10 |
+| 108 | Raju  |   7000 | 2000 | Clerk     | 2024-01-10 |  101 |   30 |
++-----+-------+--------+------+-----------+------------+------+------+
+5 rows in set (0.01 sec)
+
+mysql> select * from employees where dno =ANY (select dno from dept where location = 'Hyderabad' OR location = 'Pune');
++-----+-------+--------+------+-----------+------------+------+------+
+| Eid | EName | Salary | Comm | Job       | DOJ        | Mid  | dno  |
++-----+-------+--------+------+-----------+------------+------+------+
+| 101 | King  |  50000 | NULL | President | 2021-09-12 | NULL |   10 |
+| 102 | Smith |  37000 | NULL | Manager   | 2021-12-01 |  101 |   10 |
+| 104 | Adam  |  22000 | 1500 | Developer | 2022-06-19 |  102 |   10 |
+| 105 | Tom   |  24000 | 1000 | Developer | 2022-02-12 |  102 |   10 |
+| 108 | Raju  |   7000 | 2000 | Clerk     | 2024-01-10 |  101 |   30 |
++-----+-------+--------+------+-----------+------------+------+------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employees where  salary > (select salary from employees where ename IN ('Tom','javeed'));
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql> select * from employees where  salary >ANY (select salary from employees where ename IN ('Tom','javeed'));
++-----+-------+--------+------+-----------+------------+------+------+
+| Eid | EName | Salary | Comm | Job       | DOJ        | Mid  | dno  |
++-----+-------+--------+------+-----------+------------+------+------+
+| 101 | King  |  50000 | NULL | President | 2021-09-12 | NULL |   10 |
+| 102 | Smith |  37000 | NULL | Manager   | 2021-12-01 |  101 |   10 |
+| 103 | Ford  |  32000 | NULL | Manager   | 2022-04-15 |  101 |   20 |
+| 104 | Adam  |  22000 | 1500 | Developer | 2022-06-19 |  102 |   10 |
+| 105 | Tom   |  24000 | 1000 | Developer | 2022-02-12 |  102 |   10 |
+| 106 | Ravi  |  20000 | 3000 | Tester    | 2022-05-29 |  103 |   20 |
+| 107 | Jerry |  19000 | 3000 | Tester    | 2022-11-02 |  103 |   20 |
+| 108 | Raju  |   7000 | 2000 | Clerk     | 2024-01-10 |  101 |   30 |
+| 109 | babu  |   5000 | NULL | salesman  | NULL       | NULL |   50 |
++-----+-------+--------+------+-----------+------------+------+------+
+9 rows in set (0.01 sec)
+
+mysql> select * from employees where  salary <ANY (select salary from employees where ename IN ('Tom','javeed'));
++-----+--------+--------+------+-----------+------------+------+------+
+| Eid | EName  | Salary | Comm | Job       | DOJ        | Mid  | dno  |
++-----+--------+--------+------+-----------+------------+------+------+
+| 104 | Adam   |  22000 | 1500 | Developer | 2022-06-19 |  102 |   10 |
+| 106 | Ravi   |  20000 | 3000 | Tester    | 2022-05-29 |  103 |   20 |
+| 107 | Jerry  |  19000 | 3000 | Tester    | 2022-11-02 |  103 |   20 |
+| 108 | Raju   |   7000 | 2000 | Clerk     | 2024-01-10 |  101 |   30 |
+| 109 | babu   |   5000 | NULL | salesman  | NULL       | NULL |   50 |
+| 110 | javeed |      0 | 5000 | Intern    | 2024-01-10 |  101 | NULL |
++-----+--------+--------+------+-----------+------------+------+------+
+6 rows in set (0.00 sec)
+
+mysql> select * from employees where  salary  >ALL (select salary from employees where ename IN ('Tom','javeed'));
++-----+-------+--------+------+-----------+------------+------+------+
+| Eid | EName | Salary | Comm | Job       | DOJ        | Mid  | dno  |
++-----+-------+--------+------+-----------+------------+------+------+
+| 101 | King  |  50000 | NULL | President | 2021-09-12 | NULL |   10 |
+| 102 | Smith |  37000 | NULL | Manager   | 2021-12-01 |  101 |   10 |
+| 103 | Ford  |  32000 | NULL | Manager   | 2022-04-15 |  101 |   20 |
++-----+-------+--------+------+-----------+------------+------+------+
+3 rows in set (0.00 sec)
+
+sub query instead of table name:
+------------------------------------
+
+ select  * from  (select eid,ename,salary from employees)  e;
+
+
+select  eid,ename,salary,job   from  (select eid,ename,salary from employees)  e;
+ERROR 1054 (42S22): Unknown column 'job' in 'field list'
+
+
+Aggregate Functions OR Group Functions:
+========================================
+1. SUM
+2. AVG
+3. COUNT
+4. MIN
+5. MAX
+ 
+
+
+How to deal with null values ?
+Using IFNULL()
+
+ select  ename,   salary + IFNULL(comm,0)  total   from employees;it
+
+
+
