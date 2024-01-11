@@ -1,0 +1,322 @@
+
+PL/SQL - Procedural Lang for SQL
+
+Stored Procedure:
+-----------------
+Procedure
+Function
+Triggers
+
+Procedure:
+----------
+Procedure is just like function , but it does not return any value. It can be created by using create command , and get stored in database permanent.
+It will accept input parameter to pass data to the procedure statements.
+
+Parameters: IN , OUT , INOUT
+
+syn:
+
+CREATE Procedure  procedure_name(parameters...)
+BEGIN
+
+// any sql statements...
+// control statement
+// loops
+
+END;
+
+
+Example1:
+
+mysql> DELIMITER $$
+mysql> CREATE  PROCEDURE  mypro()
+    ->   BEGIN
+    ->   INSERT INTO DEPT VALUES(60,'HR','Mumbai');
+    ->    END
+    -> $$
+
+
+
+Example2:
+
+DELIMITER  $$
+
+
+CREATE OR REPLACE PROCEDURE  EMP_PRO(IN  id  int,OUT  result decimal(10,2))
+
+BEGIN
+
+	
+
+	SELECT sum(salary) into result  from employee;
+
+
+END$$
+
+
+CALL  EMP_PRO(101,@output);
+
+
+Example3:
+
+CREATE  PROCEDURE `getEmployee`(IN empid integer, OUT result VARCHAR(20))
+BEGIN
+
+	SELECT ename INTO result  from Employees where eid = empid;
+
+
+END
+
+CALL getEmployee(101,@output);
+
+SELECT @output;
+
+
+
+CREATE  PROCEDURE `updateEmpComm`(IN id Integer)
+BEGIN
+
+DECLARE  data  double default 0;
+
+SELECT comm INTO data from Employees where eid = id;
+
+IF  data  IS NULL THEN
+	update Employees set comm = 500 where eid = id;
+	select 'Recored updated successfully';
+ END IF;   
+
+END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+================================================
+
+
+DELIMITER $$
+
+CREATE  PROCEDURE Get_Employee(IN id int, OUT result varchar(20))
+BEGIN
+
+DECLARE  data decimal(10,2) default 0;
+
+	SELECT comm  into data from Employee where eid = id;
+	SELECT ename  into result from Employee where eid = id;
+
+	IF data < 1000 THEN
+		
+		UPDATE EMPLOYEE SET COMM = 5000 where eid = id;
+	END IF;
+
+
+END$$
+
+DELIMITER ;
+
+
+========================================
+
+CREATE PROCEDURE `getEmployees`(IN  job1 varchar(20),OUT result int)
+BEGIN
+
+	select * from employee where job = job1;
+    
+    select sum(salary) INTO result from employee where job = job1;
+    
+END
+
+================================================
+
+CREATE 
+PROCEDURE `Get_Employee`(IN id int)
+BEGIN
+
+DECLARE  data decimal(10,2) default 0;
+
+	SELECT comm into data from Employee where eid = id;
+
+	IF data is NULL THEN
+		
+		UPDATE EMPLOYEE SET COMM = 2000 where eid = id;
+			select 'record updated';
+	END IF;
+
+
+
+==========================================
+
+
+
+CREATE PROCEDURE `Pro_Case`(IN  id int, OUT result varchar(50))
+BEGIN
+  
+   DECLARE  data  varchar(50);
+
+	SELECT JOB into data from employees where eid = id;
+    
+		CASE data
+		WHEN 'President'  THEN
+		SET result = 'Hi President Sir';
+            WHEN  'Manager'  THEN
+               SET  result = 'Hi Manager';
+	    WHEN  'Developer'  THEN
+               SET  result = 'Hi Developers';
+	   WHEN  'Tester'  THEN
+               SET  result = 'Hi Tester';
+               
+			ELSE 
+                SET result = 'Hi Friend';
+            
+			END CASE;
+
+END
+================================================
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `While_Demo`(IN id int)
+BEGIN
+
+DECLARE  count  int default 0;
+DECLARE   name  varchar(30);
+DECLARE   list  varchar(250) default '';
+
+	 WHILE  count < 10  DO
+		
+			SELECT ename INTO  name  from Employees where eid = id + count;
+		    #select name;
+             
+             set  list = CONCAT(LIST,name,',');
+				
+                
+			
+		set	count = count + 1;
+    END WHILE;
+    
+			select list;
+
+END
+
+
+
+
+
+
+
+
+
+
+
+
+============================================
+
+
+
+FUNCTIONS:
+----------
+function is a block statements , function will return some value.
+function can accept INPUT PARAMETERS
+Need not to use OUT parameters in functions
+
+
+Inside functions we use return values.
+
+syn:-
+
+CREATE function func_name(parameters...)
+
+return value
+begin
+
+
+end;
+
+Note: We should use DETERMINISTIC in functions to return value else it will use NON-DETERMINISTIC option by default which will not allow to return values.
+
+Example:
+
+CREATE FUNCTION `func_demo`(id int ) RETURNS int
+    DETERMINISTIC
+BEGIN
+DECLARE data int;
+
+select  salary  INTO data from employee where eid = id;
+
+RETURN data;
+END
+
+
+
+
+
+
+
+Triggers:
+--------
+Triggers are special stored procedure which can be used for logging , notification , security purpose by the developers to monitor transactions done by other users/developers.
+
+-> Triggers can be use only for DML - INSERT, UPDATE ,DELETE
+-> Triggers can invoke based on action time - BEFORE , AFTER
+-> Triggers can be invoke for every row/record affected or only once for whole transaction
+
+
+trigger_update;
+// for every row
+update1; record updated...
+update2; record updated...
+update3; record updated...
+
+// for table
+
+update1;
+update2;
+update3;
+
+record update...
+
+============================================
+
+Trigger Examples:
+
+CREATE TABLE account (acct_num INT, amount DECIMAL(10,2));
+
+CREATE TRIGGER ins_sum BEFORE INSERT ON account
+       FOR EACH ROW SET @sum = @sum + NEW.amount;
+
+SET @sum = 0;
+
+mysql> INSERT INTO account VALUES(137,14.98),(141,1937.50),(97,-100.00);
+mysql> SELECT @sum AS 'Total amount inserted';
+
+==========================================================
+
+
+CREATE trigger dept_update BEFORE UPDATE ON DEPT
+     FOR EACH ROW SET  @data = 'dept record updating..';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
