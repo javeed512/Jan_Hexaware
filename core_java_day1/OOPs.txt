@@ -1,0 +1,121 @@
+OOPs:
+-----
+1.Inheritance
+2.Polymorphism
+3.Encapsulation
+4.Abstraction
+
+Inheritance:
+============
+It is a concept where one class/interface can extends another class/interface to access properties from parent/super class to the child/derived class.
+
+It can achieve code reusability using Inheritance.
+
+Inheritance takes place only between same types.
+
+
+class  A  extends B {
+
+}
+
+===========================
+
+public class Object{
+
+	public Object(){
+		// create instances for refer class
+		// generate hashcode 
+		// creating copy of instance variables
+		// initializing default values
+		// memory allocation   etc..
+			
+	}
+
+
+	equals(){
+		// it can compare references of 2 diff object
+	}
+	hashcode(){
+		// it return hashcode in integer format  // 1234
+	}
+
+      String toString(){
+			// it print/return hashcode in hexadecimal string format
+			return   pkg.ClassName@543ae
+	}
+
+	wait() , notify() , notifyAll()
+
+
+}
+
+
+
+
+
+Access Modifiers:
+================
+
+1. private: With in a file/program
+2. default : with in a package all classes can access
+3. public : global any where
+4. protected : 
+    It act as default and accessible with in package.
+    It act as public and accessible in other packages where some child class exists
+
+
+
+Polymorphism:
+-------------
+Poly - many
+morphism - forms
+
+If one  entity behaves differtly in different places or scenarios this concept is known polymorphism.
+Ex: One person act as Employee in office , Same person act as Customer at shop , Same person act as Child for his parents.
+
+i. Compiletime/Static Polymorphism
+
+Example:  Overloading
+ method overloading , constructor overloading ,operator overloadin
+
+
+
+ii. Runtime/Dynamic Polymorphism
+
+Example1: Overriding 
+method overriding
+
+Example2:  Any Parent class ref variable can hold its child class objects known as Runtime Polymorphism
+
+Parent p = new Parent();
+
+Object o = new Object();
+OR
+Object o = new Parent();
+OR
+Object o = new Child();
+
+
+Encapsulation:
+
+Binding or Wrapping Data and Data members into single unit.
+
+
+
+Abstraction: (Data Hiding + Encapsulation)
+
+Highlightly set of services to the user and hiding implementation code from user is known as Abstraction.
+
+How to implement Abstraction in Java?
+Using interfaces and abstract class/implementation class.
+
+Interface:
+User: Set of services consume by the user.
+ 
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+Task for weekend:
+
+Java Important Learn/Practice
+
+1. Fundamentals of Java/Programming
+2. String and Arrays.
+3. OOPs (All)
+4. Collections
+	List,Set,Map
+
+Project:
+--------
+Analyse or Understand Case Studies:
+Do some Reseach on your case studies
+
+Tables 
+Create tables
