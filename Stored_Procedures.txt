@@ -306,7 +306,17 @@ CREATE trigger dept_update BEFORE UPDATE ON DEPT
 
 
 
+Views:
+------
 
+
+
+CREATE VIEW  EMP_INFO AS 
+ select eid , ename ,salary from employees where job IN ('Developer','Tester') 
+ORDER BY ename;
+
+
+select * from EMP_INFO;
 
 
 

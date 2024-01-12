@@ -1,0 +1,212 @@
+
+Java Naming Convections:
+------------------------
+
+package
+-------
+lower case
+
+ex:  demo , com.demo , java.lang, java.util , java.io , java.sql
+
+syn:-  domain.company.project.module.submodule;
+
+   com.hexaware.metrorail.passangers.tickets;
+
+Class/Interface
+---------------
+Init Cap
+Ex:  Student , Demo , Employee 
+     Object , System , String 
+
+
+Only class will have constructor
+
+InitCap
+
+Student() , Object() , String() 
+
+variables/methods:
+-----------------
+camel case
+ Ex:  amount , id , amountDetails , studentRollNumber ,
+     employeeName , get() , getName() , hello()
+	 
+      abc_123$
+	int amount =0;
+		amount = 500;
+
+
+final variable:
+---------------
+Block Letters / Upper case
+
+Ex:  PI , IFSC , TOKEN_NUMBER
+
+ final double PI = 3.141;
+	PI = 3.5; // not possible
+
+
+
+Data types:
+-----------
+
+primitive data types
+data-type         wrapper class
+byte    1byte        Byte
+short   2bytes       Short
+char    2bytes       Character
+int     4bytes       Integer
+long    8bytes        Long
+float   4bytes         Float
+double  8bytes         Double
+boolean   --- 1 bit    Boolean
+(true/false)  
+       
+Ex:  int x;
+
+ // default value for numeric data types is 0 or 0.0
+// char default value is single space 
+// default value is false
+
+reference data types / non-primitive data types
+
+String s1;
+
+Employee e1; 
+
+MyInterface mi;
+
+Note: Default value for any reference data types is null.
+
+
+In C-lang:
+--------
+main(){
+
+printf("hello");
+}
+
+
+---------------------
+
+In Java , we should and must write code either inside class or interface.
+Demo.java
+========
+class   Demo         
+{
+
+public static void main(String ar[]){
+
+	System.out.println("hello");
+
+}
+
+public int add(int a, int b){
+	return a+b;
+}
+
+}
+
+
+
+
+Class:
+------
+Class is a reusable component in Java.
+It is imaginary in nature.
+All types of classes will have constructor.
+Ex: Fruits,Vegetables,Students,Vehicles,Animals
+Object:
+-------
+Object is an physical entity or instance of class which exists in this world.
+Ex: Apple,Potato,Javeed,Car,Dog
+
+
+
+Types of variables in Java:
+---------------------------
+1. Local
+A variable declare inside any block or declare as parameters known as local variable
+Scope: Local variable can be accessible with in the given block.
+Local variable values should be initialize by developers , jvm won't do it.
+
+2. Instance
+A variable declare inside the class outside methods without static keyword
+Scope: Depends on Access Modifier (default,private,public,protected)
+Jvm is responsible to initialize values to the Instance Variables/Object level variables
+
+3. static
+
+
+
+Static Members:
+---------------
+static variables,methods,class(inner class),block are known as static members.
+In Java first memory allocation will be done for Static members by JVM.
+Static members get memory allocation during class loading.
+All static members can be accessible in two ways.
+i.by using class name
+ii. by using class object/reference
+
+
+
+Static / Non-Static access:
+----------------------------
+
+non-static ---> static   not allowed directly but with the help of ref var/object
+static ---->  non-static  directly its possible using ref is optional
+
+
+
+Constructor:
+These are special methods invoke by the jvm to create instance/object of the given class.
+
+In Java when we dont write any constructor then only Compiler will add/write implicit 
+default constructor.
+
+Note: When ever user write any constructor in class then compiler dont do anything for construtor.
+
+
+Super most class in Java
+Object class:
+--------------
+class Object{
+
+
+	public Object(){
+		// to create instance
+		// to generate hashcode
+		// to create copy of instance vars
+		// to allocate memory in heap
+		
+	}
+
+
+
+
+}
+
+
+
+
+
+OOPS:
+
+Class and Object
+
+1.Inheritance
+2.Polymorphism
+3.Encapsulation
+4.Abstraction
+
+
+
+
+
+
+
+
+
+
+
+
