@@ -1,0 +1,93 @@
+final:
+------
+if we declare variable as final we can't re-initialize
+
+final int X = 99;
+  X = 100; // ERROR
+
+ class A {
+
+final/static/private  void m1(){
+		// logic1
+         }
+
+}
+
+class B extends A{
+
+
+	void m1(){
+		// logic2
+	}
+
+}
+
+Note: If any class declare with final keyword it cannot be extended by other classes
+-------------------------------
+
+final class String  implements Comparable{
+
+	boolean equals(){
+		// compare values
+	}
+
+	int compareTo(){
+		
+	}
+
+
+}
+
+Note: All wrapper classes also implements Comparable interface ,
+ override compareTo()
+
+
+interface I1  {
+
+}
+interface I2  extends I1 {
+
+}
+
+interface I3  extends I2,I1 {
+
+}
+
+
+
+
+Note: Whenever you want to override either hashcode() or equals() from Object class ensure that both the methods overriden by you.
+
+
+class Employee extends Object{
+
+
+	equals(){
+
+
+	}
+
+	hashcode(){
+
+	return eid;	
+	}
+
+	String toString(){
+		return eid;
+	}
+
+
+}
+
+Employee e1 = new Employee(101);  // @456ae
+Employee e2 = new Employee(101);  //@7654b
+
+sysout(e1);
+
+e1.equals(e2);
+
+
+
+
+
+
