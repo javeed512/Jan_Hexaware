@@ -1,0 +1,39 @@
+
+Exception Handling:
+
+Exception Occur only at Runtime.
+When Exception occur program terminates 
+If we handle exception program terminate normally else program terminate abnormally
+
+keywords:
+========
+throws : it is use to throw or forward or propagate exception from callee to the caller
+
+try-catch-finally
+==============================
+syn:-
+try-catch
+try-catch1-catch2-catch3-finally
+
+try-finally
+
+try{
+
+try-catch{}
+
+}
+finally{
+try-catch-finally
+
+
+}
+========================
+
+throw : It is used to throw/raise exception explicitly/manually.
+
+Mostly it is used for User defined exceptions.
+
+
+
+
+

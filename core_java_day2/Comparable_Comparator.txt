@@ -1,0 +1,44 @@
+
+
+ArrayList :
+------------
+
+interface RandomAccess{ // Marker interface
+
+// zero abstract method
+
+}
+
+
+
+class ArrayList implements List, RandomAccess {
+
+
+
+}
+
+
+
+
+
+-----------------------
+
+java.lang.Comparable
+
+compareTo();
+
+Comparable need to implement in same class by modifying that class.
+
+===========================
+
+java.util.Comparator
+
+compare();
+
+For Comparator we need to create a seperate class which implements 
+Comparator interface compare() and we need to create object of this implementation class
+and pass its object to the TreeSet or TreeMap.
+
+
+
+

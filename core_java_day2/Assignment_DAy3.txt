@@ -1,0 +1,42 @@
+Assignments Day-3:
+------------------
+
+Work on Pojo/Entity classes
+private properties
+param constructors
+setter,getters
+toSTring,hashcode,equals
+
+
+
+Collections
+-----------
+ArrayList
+Iterator
+ListIterator
+
+HashSet --> POJO Class
+TreeSet --> POJO Class , Comparator
+
+HashMap 
+TreeMap
+Hashtable (read notes)
+
+Queue
+Any Example on Queue
+
+
+
+Exception Revise
+try-catch-finally
+throws
+throw
+User Defined Exception
+
+
+
+
+
+
+
+
