@@ -2,7 +2,9 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import entity.Department;
@@ -23,8 +25,8 @@ public class DeptDaoImp implements IDeptDao {
 		// INSERT
 		String insert = "insert into dept values(?,?,?)"; // ? positional parameters
 
-			int count = 0;
-		
+		int count = 0;
+
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(insert);
 
@@ -32,7 +34,7 @@ public class DeptDaoImp implements IDeptDao {
 			pstmt.setString(2, dept.getDname());
 			pstmt.setString(3, dept.getLocation());
 
-		 count = pstmt.executeUpdate();
+			count = pstmt.executeUpdate();
 
 		} catch (SQLException e) { // TODO Auto-generated catch block
 			e.printStackTrace();
@@ -62,7 +64,29 @@ public class DeptDaoImp implements IDeptDao {
 	@Override
 	public List<Department> selectAll() {
 
-		return null;
+		String selectAll = "select dno,dname,location from dept";
+		
+		List<Department>  list = new ArrayList<Department>();
+
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(selectAll);
+
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+
+		
+				Department dept = 
+						new Department(rs.getInt("dno"),rs.getString("dname") ,rs.getString("location") );
+				
+				list.add(dept);
+			}
+
+		} catch (SQLException e) { 
+			e.printStackTrace();
+		}
+
+		return list;
 	}
 
 }

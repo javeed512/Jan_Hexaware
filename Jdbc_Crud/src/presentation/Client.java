@@ -1,5 +1,6 @@
 package presentation;
 
+import java.util.List;
 import java.util.Scanner;
 
 import dao.DeptDaoImp;
@@ -41,6 +42,36 @@ public class Client {
 				int count =	dao.insert(dept);
 				
 				System.out.println(count +" record inserted successfully");
+				
+				break;
+				
+			case 2:
+				 
+				//update
+				break;
+				
+			case 3:
+				
+				// enter dno
+				
+				//dao.deleteOne(dno);
+				 
+				break;
+				
+			case 4: 
+				
+				// enter dno
+				
+			//	dao.selectOne(dno);
+				
+				break;
+			case 5:
+				
+			List<Department> list =	  dao.selectAll();
+			
+				
+			
+			list.stream().forEach(System.out::println);
 				
 				break;
 				
