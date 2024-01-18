@@ -1,0 +1,147 @@
+Java-8 Features:
+================
+1. java.time package / DateTime API
+2. Functional Interface
+3. static and default methods in interfaces
+4. Lambda Expressions
+5. method/constructor references
+6. Optional return type
+7. Stream API
+
+Functional Interface:
+--------------------
+An interface which will have only one abstract method is known as Functional Interface.
+Note: It can have static/default methods and variables also but only one abstract method.
+Every functional interface implementation is lambda exp.
+
+interface  MyInterface{
+
+public abstract	int add(int a,int b);
+
+
+}
+
+
+
+Lambda Expressions:
+===================
+
+Lambda Exp is a implementation to the  functional interface.
+It represent an instance of functional interface
+
+It can be implemented in any java class , we need not to have seperate implementation class.
+
+Note: Every Lambda Exp return type is Functional interface
+syn:
+()->{}
+
+Types of Functional Interfaces and Implementations(Lambda Expressions)
+
+1. Consumer Functional Interface
+
+ void method(parameter);
+Ex:  void setData(String data);
+2. Supplier  Functional Interface
+
+   Type  method();
+Ex:  int getId();
+
+3. Predicate Functional Interface
+
+    boolean   method(parameter);	
+
+Ex:  boolean  isValid(username);
+
+4. Function  Functional Interface
+
+     Type  method(parameter);
+Ex: int  findLength(String name);
+
+
+
+
+
+
+Method References:
+==================
+
+System.out.println("hello");
+
+Ex: Consumer 
+(String name)->
+{
+  System.out.print(name); or System.out::println;
+
+}
+
+
+
+Optional return type:
+----------------------
+Employee emp = null
+
+
+Employee  getEmp(){
+
+return   emp;
+
+}
+
+
+Optional<Employee>  getEmp(){
+
+
+	return emp.orElse(null);
+
+}
+
+
+
+----------------------
+
+Lazy and Eager/early loading.
+
+ 
+
+class Address{
+
+String city;
+
+}
+
+
+class  Employee{
+
+int eid;
+String ename;
+Address address; // HAS A relationship
+
+}
+
+// early loading
+
+Employee e = new Employee();
+
+eid = 0
+ename = null;
+address = new Address(); 
+
+
+// lazy loading
+
+Employee e = new Employee();
+
+eid = 0
+ename = null;
+address = null;
+
+getAddress(); // new Address();
+
+
+
+
+Stream Operation Demo
+
+List(strings)  ---> reading names ---> find length name ---> store into collection/array
+
+

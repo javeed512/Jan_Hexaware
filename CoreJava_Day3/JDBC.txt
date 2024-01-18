@@ -1,0 +1,73 @@
+JDBC:
+------
+
+Java Database Connectivity.
+
+JDBC is an API.
+
+Sunmicro System given JDBC API/Specification
+java.sql.*;
+
+interfaces:
+Driver
+Connection
+Statement
+PreparedStatement
+CallableStatement
+ResultSet
+
+classes:
+DriverManager
+Date
+
+
+=====================
+
+
+
+
+JDBC is used to connect with any SQL Databases.
+
+In JDBC we have four drivers
+1. Type-1 Driver
+2. Type-2 Driver
+3. Type-3 Driver
+(out dated drivers)
+
+4. Type-4 Driver/Thin Driver
+  
+
+Steps:
+======
+Download jar file and save it some where.
+
+step1:
+    Register Driver class 
+	DriverManager.registerDriver(new Driver())
+	OR
+	Class.forName("Driver");
+
+
+step2:
+     Get the DB Connection/Establish connection
+
+Connection conn = DriverManager.getConnection(url,username,password);
+
+step3:
+	Write SQL Query and  Create Any Statement
+	i.Statement (for static queries or DDL)
+	ii.PreparedStatement(for dynamic queries or queries with input parameters)
+	
+step4:
+
+	Based on Query invoke methods
+	1. int executeUpdate(); // for DML	query	 or Non-Select
+	2. ResultSet executeQuery(); // for Select queries  or Select
+
+
+step5:
+
+	close the DB Connection.
+	
+
+
