@@ -1,0 +1,62 @@
+
+class Calculator {
+
+	int add(int a,int b){
+	
+		return a+b;
+	}
+
+
+}
+
+
+Testing:
+=============
+Testing helps developers to ensure quality of software/application.
+
+1. Find bugs
+2. Check Software Quality
+3. Ensure Software implemented as per client requirement
+4. Verify Robust 
+
+
+Unit : method , function , class , module , webpage
+
+Unit Testing is concept where a single  unit will be tested by applying set of inputs or sequence of inputs(test cases) by developers.
+
+
+JUnit library/framework :
+=========================
+We need JUnit-5 / Jupiter  jar file.
+
+org.junit
+
+int  add(int,int)
+
+test cases 
+4,5
+-4,-3
+4,-6
+0,0
+a,b
+
+
+Assertion
+    assertEquals()
+    assertNotEquals()
+    assertTrue()
+    assertNotNull() ........
+
+Junit5 Annotations:
+===================
+@Test 
+
+
+
+
+
+
+
+
+
+
