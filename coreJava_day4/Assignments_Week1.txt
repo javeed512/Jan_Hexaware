@@ -1,0 +1,49 @@
+
+Weekend Assignment:
+==================
+
+Project:
+Analyse Modules in project and identify business services
+
+Analyse and create Database schemas / tables
+
+Analyse mappings between tables
+
+Design ER-diagrams
+
+Identify and Create Entities/POJOs classes in your project case study.
+
+
+
+------------------------------------
+
+Assignments:
+
+Create github repo , and upload all assignments of week-1
+
+
+Practice and Recap all core java concepts
+
+Fundamentals of Java
+OOPs
+Collections
+String API , Arrays
+JDBC 
+Java8 All Features
+Stream API
+Entity classes using Pojo objects
+Revise layer architecture
+
+Revise SOLID Principles and Design Patterns
+Revise JUnit
+
+
+SELF LEARNING:
+==============
+maven tool
+install maven and set JAVA_HOME path
+what is maven tool?
+how to create maven java project?
+
+
+

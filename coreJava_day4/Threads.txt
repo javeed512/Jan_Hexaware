@@ -1,0 +1,76 @@
+
+
+interface Runnable {
+
+	void run();
+
+
+}
+
+
+public class Thread implements Runnable{
+
+
+	public Thread(){
+
+		
+		// set thread priority 
+		// set name , group name
+
+	}
+
+	void run(){
+
+	}
+
+	start(){
+
+		// thread assign to thread scheduler
+		
+		run();		
+	}
+
+
+	join(),yield(),sleep()
+	currentThread()
+	setter , getter
+
+
+
+
+}
+
+
+
+
+
+   t1.yield(); goto waiting state
+t2  t3
+
+
+join()  
+
+t1 t2 t3	
+
+
+
+consumer , producer  application
+
+
+
+
+customer1  --> wait()
+customer2
+customer3
+
+notify();
+notifyAll();
+
+showroom-->Manager    "bike"   -->factory 
+
+
+
+
+
+
+
