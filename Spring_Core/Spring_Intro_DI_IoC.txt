@@ -1,0 +1,174 @@
+Spring Framework:
+==================
+Spring depends on DI and IOC.
+-> Dependency Injection (DI)
+-> Inversion of Control  (IOC)
+
+DI provides Loose Couplying in Spring.
+
+
+class Address{
+
+   String city;
+
+}
+
+class Employee  {
+
+	int eid;					Employee e = new Employee();
+	String ename;
+
+	Address addr;  // loose couplying
+}
+
+Dependency Injection:
+1. setter methods DI
+2. constructor  DI
+3. Interface DI
+
+setter method DI
+---------------------
+Employee emp = new Employee();
+		
+emp.setEid(101);
+emp.setEname("Javeed");
+		
+Address addr = new Address();
+addr.setCity("Hyderabad");
+				
+emp.setAddr(addr); // injecting address obj into emp obj
+
+
+=================================
+
+constructor DI
+---------------
+Address addr = new Address("Pune");
+			
+Employee emp = new Employee(102, "Satish", addr);  // DI using constructor
+		
+		
+System.out.println(emp);
+
+==============================================================
+
+
+
+
+
+IOC : Inversion Of Control
+---------------------------
+Spring IOC Container is responsible for Object Creation , Injecting / wiring objects
+manage Beans/Pojo life cycle.
+
+Spring IOC Container read meta-data or configuration info either from xml file(out dated)
+OR read meta-data from Spring Java Annotations to understand which Bean class objects needs to create
+and what all objects needs to inject.
+
+XmlBeanFactory --> IOC Container for xml config
+ClassPathXmlApplicatoinContext();
+
+ApplicationContext(I) ---> AnnotationConfigApplicationContext(C)  // IOC Container for annotation 
+
+
+
+
+
+Steps for Spring Project:
+-------------------------
+For XML Configuration:
+
+1. Add dependencies into pom.xml  spring dependencies
+
+2. Create POJO/Bean
+
+package  com.hexaware.demo; 
+
+ class Employee{
+
+  private int eid;
+  private String ename;
+ // default constructor
+ // setter ,  getter
+// parameter constructor
+
+ }
+
+
+
+3.  applicationContext.xml
+  <beans  xmlnamespace="....">
+
+	<bean id="emp1"  class="com.hexaware.demo.Employee">
+
+		<property name="eid">101</property>
+		<property name="ename">king</property>
+
+	</bean>
+
+
+ </beans>
+
+
+4.
+class Test {
+main() {
+
+ ApplicationContext  context = new ClassPathXmlApplicationContext("applicationContext.xml");
+	
+	Employee e1 = (Employee) context.getBean("emp1");  // one way
+		e1.setEid(101);
+		e1.setEname("king");
+
+	Employee e2 =  context.getBean(Employee.class);   // 2nd way	
+	
+
+	}
+
+}
+
+
+
+XmlBeanFactory --> IOC Container in xml config
+
+
+
+Spring Annotation:
+
+Stereo Type annotations
+------------------------
+@Component      // use for pojo/beans  classes
+@Service       // use for service classes
+@Repository    // repository or DAO classes
+@Controller    // use for web servlets , controllers
+
+@Configuration   // for any java class
+@Bean
+
+
+@Autowire // auto wiring or auto DI
+
+
+Auto-Wiring:
+1. ByName
+2. ByType
+
+
+Scopes:
+========
+1. Singleton // default  (Create and return always same or single obj)
+2. Prototype (Prototype always creates a new object and return it , irrespective of obj exist or does not exist)
+3. Request
+4. Session
+
+
+
+
+
+
+
+
+
+
+
+
