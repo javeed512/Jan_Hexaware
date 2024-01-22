@@ -1,0 +1,87 @@
+Testing:
+
+-> To find bugs/errors in  program/software
+-> To ensure reliability of software
+-> To ensure  quality of software
+-> To verify software is implemented as per client requirement
+
+SDLC:
+Software Development Life Cycle:
+---------------------------------
+1. Requirement Gathering (Business Analyst)
+2. Planing and Designing (DB Schema , ER , UML Diagrams , Test cases)
+3. Coding/Implementation by Developers (Unit Testing)
+4. Integration Testing  (QA team/testing team)
+5. Deployment
+6. Maintenance
+
+
+Unit Testing:
+Testing a specific unit (method , class , package , webpage)
+Developers perform unit testing in real time
+
+In Java we use a tool / library known as JUnit for unit testing.
+JUNIT is nothing but specification or API which provides  lots of  inbuilt classes and methods to perform unit testing.
+
+TDD: Test Driven Development
+Where first test cases will be written and based on that actual implementation will be done by developers.
+
+
+Test Cases: The sequence parameters used for testing purpose
+add(int,int)
+ 4,5
+ -3,-2
+  0,0
+  0,a
+
+Login Page
+------------
+  UserName: [    ]
+  Password : [    ]
+    (Login)
+
+Test Cases: Valid inputs , invalid inputs , expected data , unexpected , range of values
+1. valid uname , pwd
+2.  valid uname, invalid pwd
+
+
+
+
+
+JUNIT-5:
+========
+
+@Test 
+@DisplayName
+@BeforeAll
+@AfterAll
+@BeforeEach
+@AfterEach
+@Disabled
+@Tag
+@Suites
+@IncludeTags
+@ExcludeTags
+
+
+
+
+
+
+
+
+
+public add(int a, int b){
+
+	return a+b;
+}
+
+
+Test class
+------------
+ int actual =   add(5,4);
+ int actual =   add(0,-4);
+ 
+ int expected = 9;
+
+	assert(actual,expected); // failure

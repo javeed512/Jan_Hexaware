@@ -1,0 +1,13 @@
+Java 11 Features
+===============
+1. String class new methods
+  isBlank() , strip() , stripLeading() , stripTrailing()
+2. Files class
+	readString();
+	WriteString();
+3. Path class 
+Path path = Paths.get("abc.txt");
+
+4. Improved HttpClient
+5. Java file can be run without compilation directly
+	java Demo

@@ -1,0 +1,75 @@
+
+IO Package:
+-----------
+
+Stream: Flow/Transfer of Data from source to destination.
+
+
+Byte by Byte
+
+Byte Stream:
+-----------
+
+InputStream
+FileInputStream
+BufferedInputStream   ---> int  read()  -->  A 65
+ObjectInputStream
+
+OutputStream
+FileOutputStream
+BufferedOutputStream    --> write(int)  -->A
+ObjectOutputStream
+
+
+
+
+
+
+Character by Character
+
+Character Stream:
+-----------------
+Reader
+FileReader
+BufferedReader         ---> int read();
+InputStreamReader
+
+
+
+Writer
+FileWriter
+BufferedWriter          ---> write(int);
+PrintWriter -->print(),println()
+OutputStreamWriter
+
+
+close();
+
+
+
+
+
+
+
+
+
+class System {
+
+	public  static InputStream in = new InputStream();
+	public static PrintWriter out  = new PrintWriter();	
+	public static PrintWriter err;
+
+	void gc();
+
+}
+
+System.in 
+System.out.print();
+
+
+
+
+
+
+
+
