@@ -1,0 +1,24 @@
+Spring JDBC Template:
+=====================
+
+jdbc template dependencies needs in maven pom.xml file
+1.mysql jar
+2. spring-context
+3. spring-jdbc
+
+
+Spring JdbcTemplate
+JDBC produces a lot of boiler plate code, such as opening/closing a connection to a database, handling sql exceptions etc. It makes the code extremely cumbersome and difficult to read.
+Implementing JDBC in the Spring Framework takes care of working with many low-level operations (opening/closing connections, executing SQL queries, etc.).
+Thanks to this, when working with the database in the Spring Framework, we only need to define the connection parameters from the database and register the SQL query, the rest of the work for us is performed by Spring.
+JDBC in Spring has several classes (several approaches) for interacting with the database. The most common of these is using the JdbcTemplate class. This is the base class that manages the processing of all events and database connections.
+The JdbcTemplate class executes SQL queries, iterates over the ResultSet, and retrieves the called values, updates the instructions and procedure calls, “catches” the exceptions, and translates them into the exceptions defined in the org.springframwork.dao package.
+Instances of the JdbcTemplate class are thread-safe. This means that by configuring a single instance of the JdbcTemplate class, we can then use it for several DAO objects.
+When using JdbcTemplate, most often, it is configured in the Spring configuration file. After that, it is implemented using bean in DAO classes.
+
+
+
+Note: In database.properties file dont use "username" its a predefined property  ,use uname/user_name etc.
+ 
+
+
