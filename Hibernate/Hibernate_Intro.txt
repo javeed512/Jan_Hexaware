@@ -1,0 +1,154 @@
+
+Hibernate Framework:
+=====================
+Hibernate is an implementation to the ORM Specification.
+
+ORM Tool having implementations like Hibernate , TopLink , IBatis, MyBatis etc
+
+Object Relational Mapping
+
+Object Oriented    --------------         Relational DB 
+
+String                                    varchar
+Integer/int                                int/number
+
+
+class A{				Dept Table (DNO , DNAME , LOC);
+					EMPLOYEE TABLE (EID,ENAME,SALARY,DNO);
+  m1(){.....}
+}					SELECT * from EMPLOYEE;
+class B extends A {
+
+	B b = new B();
+	  b.m1();
+
+}
+
+
+class Address{   
+                           Address_Table (aid,city,state)
+int addressId;
+String cityName;
+String stateName;
+
+}
+
+class Employee{				Employee Table (eid,ename,aid)
+
+	int eid;
+
+	@NotNull
+	String ename;
+	List<Address> addrList;
+	Address addr;
+
+}
+
+
+Employee e1 = new Employee(101,"javeed",new Address(23,"hyd","ts"));
+// @345ab2
+
+
+
+SQL: Tables , Columns
+
+select aid,city,state  from Address_Table;
+
+
+
+HQL/JPQL:  POJO/Entity Class  and Properties
+
+select a.addressId, a.cityName, a.stateName from Address a;
+
+
+
+
+Hibernate Project Creation:
+
+Create maven project and add following dependencies in pom.xml file.
+
+
+pom.xml file
+==============
+
+
+		<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>8.0.31</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.3.7.Final</version>
+		</dependency>
+
+
+		<!--
+		https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api -->
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+
+================================================================================
+
+Hibernate Steps:
+1.Create maven project with above dependencies
+2. Create hibernate.cfg.xml file and add all required properties
+3. Create Entity/POJO class use @Entity annotation 
+4. Use HibernateUtil class (User defined class) to which return session factory
+5. Get SessionFactory object
+  SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+6. Get Session object  
+	Session session = sessionFactory.openSession();
+
+Note: For DML Operations always begin transaction and commit
+7. Transaction tr =	session.beginTransaction(); 
+
+	// perform any DML Operations   		
+
+	save(Entity obj); // insert , update
+	  delete(Entity obj); // delete
+
+	tr.commit();
+
+// saveOrUpdate(Entity obj); // insert or update
+ // persist(Entity obj); // insert or update
+
+8. Select Queries
+
+We can write select queries in 3 ways.
+1. Query createQuery(selectQuery)
+2. Query createNamedQuery(selectQuery) 
+ // in this queries will be written in Entity class and refer using some query name
+3.  Query createNativeQuery(selectQuery);   
+
+Above methods execute any type of select query 
+if they return single value then use
+i. query.getSingleResult();
+
+if they return bulk of records or results then use
+ii. query.getResultList();
+
+
+
+
+
+
+
+
+
+
