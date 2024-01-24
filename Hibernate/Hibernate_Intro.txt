@@ -134,7 +134,7 @@ We can write select queries in 3 ways.
 1. Query createQuery(selectQuery)
 2. Query createNamedQuery(selectQuery) 
  // in this queries will be written in Entity class and refer using some query name
-3.  Query createNativeQuery(selectQuery);   
+3.  Query createNativeQuery(selectQuery); or createSQLQuery(); // SQL 
 
 Above methods execute any type of select query 
 if they return single value then use
@@ -146,8 +146,29 @@ ii. query.getResultList();
 
 
 
+Hibernate will have 3 types of cache
+1.First Level Cache: 
+Hibernate first level cache is associated with the Session object. Hibernate first level cache is enabled by default and there is no way to disable it. However hibernate provides methods through which we can delete selected objects from the cache or clear the cache completely. Any object cached in a session will not be visible to other sessions and when the session is closed, all the cached objects will also be lost.
 
 
+Second Level Cache: 
+Hibernate Second Level cache is disabled by default but we can enable it through configuration. Currently EHCache and Infinispan provides implementation for Hibernate Second level cache and we can use them. We will look into this in the next tutorial for hibernate caching.
+
+
+
+To enable use of second level cache
+
+hibernate.cfg.xml
+-------------------
+
+<property name="hibernate.cache.use_second_level_cache">true</property>
+
+
+
+Note: We can delete/clear Entity objects from cache/persistence memory using
+session.evict(entity); // delete one obj from memory not from table
+session.clear(); // clear/delete all objects from memory
+session.close(); // close session , which delete memory also
 
 
 
