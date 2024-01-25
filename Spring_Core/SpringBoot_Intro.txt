@@ -1,0 +1,37 @@
+Spring Framework (old outdated)
+1. Install maven
+2. search and add all dependencies explicitly
+3. depend on xml configuration like application.xml ,hibernate.cfg.xml
+    web.xml 
+4. Install external web server(tomcat , weblogic)
+5. Supports JSP for dynamic web pages
+6. connecting to cloud not easy
+7. integrating with other framework like angular , reactjs not easy
+
+
+Pivotal company given many products one of them is Spring Boot:
+
+Spring Boot:
+------------
+1. NO need of xml file , we can use propeties file or yml file for configuration
+2. Every SpringBoot project will have embedded web server (Tomcat)
+3. Spring boot project will have embedded DB (H2 Database)
+4. Spring boot provides set of lib/dependencies which can added during 
+   project creation
+5. SpringBoot implicit maven tool
+6. SpringBoot does not support JSP by default
+7. SpringBoot does not support xml data format by default
+8. SpringBoot works online , and help developers to create and maintained project easily
+9. SpringBoot can be use to generate Docker images and packaging jar/war
+10. SpringBoot works on Java-8 version
+Spring Boot PRoject can be created in 3 different ways 
+i. Using STS
+ii. Online Using spring.io   spring initialzr
+iii. Command Line inteface (CLI)
+
+
+
+
+
+
+

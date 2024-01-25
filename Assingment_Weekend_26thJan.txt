@@ -1,0 +1,27 @@
+Assignment:
+===========
+
+Revise CoreJava , SQL , PLSQL , Hibernate , Spring Core
+
+Revise & Practice Hibernate CRUD , 
+Custom Queries , Mapping (oneToone ,oneTomany ,manyTomany)
+
+SELF Learning:
+--------------
+HTML (practice)
+CSS (practice)
+
+Basics JSP (practice) and SERVLETS(theory)
+
+
+
+
+Capstone Project / Case Study:
+-----------------------------
+1.Create Hibernate project 
+Analyse all enities , create all entities 
+Create Mappings for all enities 
+
+2. Analyse Business Service
+ Create Service interfaces along with all abstract methods
+  and empty implementation service classes
