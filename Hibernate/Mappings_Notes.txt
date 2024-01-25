@@ -1,0 +1,255 @@
+Mappings/Associations:
+======================
+
+Unidirectional
+Bi-Directional
+--------------
+
+class Address{
+int aid;
+String city;
+//Employee emp;
+
+}
+
+class Employee{
+ int eid;
+ Address addr;
+
+
+}
+
+Address addr = new Address(21,"Hyd");
+Employee emp = new Employee(101,addr);
+	
+	session.save(emp); // cascade
+
+	emp.setSalary(9000);
+		
+
+	session.delete(emp);// emp -->addr
+
+
+@OnetoOne(cascade="ALL")
+@OnetoOne(fetch="LAZY/EAGER")
+
+	EAGER Loading ==>	session.get(101); ---> emp and addr
+	LAZY  Loading ==>       session.get(101); -- > emp  (only emp)
+
+
+
+
+---------------------------------------------------------------------------
+OneToMany Mapping Entities :
+=============================
+
+
+
+@Entity
+public class Employee {
+
+	@Id
+	private int eid;
+	private String ename;
+	private double salary;
+
+	
+	// setter,getter,construtors
+
+	
+}
+
+--------------------------
+
+@Entity
+public class Department {-
+
+	@Id
+	private int departmentId;
+	private String departmentNam;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="dno")   // dno is FK in Employee child table
+	private Set<Employee> employees = new HashSet<Employee>(); // always initialize collection type properties to avoid
+	
+// setter,getter,construtors
+															// NullPointerExp
+
+
+}
+-------------------------------
+
+public class OneToManyMappingTest {
+
+	public static void main(String[] args) {
+
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+
+		Session session = sessionFactory.openSession();
+
+		Transaction tx = session.beginTransaction();
+
+		Employee e1 = new Employee();
+		e1.setEid(101);
+		e1.setEname("King");
+		e1.setSalary(40000);
+
+		Employee e2 = new Employee();
+		e2.setEid(102);
+		e2.setEname("Smith");
+		e2.setSalary(60000);
+		
+		Employee e3 = new Employee();
+		e3.setEid(103);
+		e3.setEname("Ford");
+		e3.setSalary(50000);
+		
+		
+		Set<Employee>   employeeSet = new HashSet<Employee>();	
+		
+					employeeSet.add(e1);
+					employeeSet.add(e2);
+					employeeSet.add(e3);
+		
+		
+
+		Department dept = new Department();
+
+		dept.setDepartmentId(10);
+		dept.setDepartmentNam("Development");
+		dept.setEmployees(employeeSet);
+
+		
+			session.save(dept);
+			
+				tx.commit();
+		
+				sessionFactory.close();
+		
+	}
+
+}
+
+
+
+========================================================================
+
+OneToMany and ManyToOne
+
+Entities:
+=========
+
+@Entity
+public class Employee {
+
+	@Id
+	private int eid;
+	private String ename;
+	private double salary;
+
+	
+	@ManyToOne
+	@JoinColumn(name = "dno") // dno is FK in Employee child table
+	Department department;
+	
+}
+
+
+
+@Entity
+public class Department {
+
+	@Id
+	private int departmentId;
+	private String departmentNam;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
+
+	private Set<Employee> employees = new HashSet<Employee>(); // always initialize collection type properties to avoid
+																// NullPointerExp
+
+
+// the method below will add employee to department
+	// also serves the purpose to avoid cyclic references.
+
+	public void addEmployee(Employee employee) {
+
+// here employee need dept obj so adding current dept obj to employee obj 
+		employee.setDepartment(this); // in main() dept.addEmployee(e1);
+
+		Set<Employee> set = getEmployees();
+
+		set.add(employee);
+
+	}
+
+
+OneToMany and ManyToOne Bidirectional Test:
+=============================================
+
+package com.hexaware.mappings;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.hexaware.mappings.entities.Department;
+import com.hexaware.mappings.entities.Employee;
+
+public class OneToMany_ManyToOne {
+
+	public static void main(String[] args) {
+
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+
+		Session session = sessionFactory.openSession();
+
+		Transaction tx = session.beginTransaction();
+
+		Employee e1 = new Employee();
+		e1.setEid(101);
+		e1.setEname("King");
+		e1.setSalary(40000);
+
+		Employee e2 = new Employee();
+		e2.setEid(102);
+		e2.setEname("Smith");
+		e2.setSalary(60000);
+
+		Employee e3 = new Employee();
+		e3.setEid(103);
+		e3.setEname("Ford");
+		e3.setSalary(50000);
+
+		Department dept = new Department();
+
+		dept.setDepartmentId(20);
+		dept.setDepartmentNam("Testing");
+
+		// add all employee to collection set , using addEmployee(employee)
+
+		dept.addEmployee(e1);
+		dept.addEmployee(e2);
+		dept.addEmployee(e3);
+
+		session.persist(dept);
+
+		tx.commit();
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
