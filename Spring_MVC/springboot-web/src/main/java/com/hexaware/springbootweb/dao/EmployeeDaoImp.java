@@ -48,4 +48,25 @@ public class EmployeeDaoImp implements IEmployeeDao {
 		return list;
 	}
 
+	@Override
+	public String updateEmployee(Employee emp) {
+		
+			String update = "update employee_table set ename = ? , salary = ? where eid = ?";
+		
+			int count =	jdbcTemplate.update(update,emp.getEname() , emp.getSalary() , emp.getEid());
+		
+		return count +" record updated";
+	}
+
+	@Override
+	public String deleteEmployee(int eid) {
+
+
+		String delete = "delete from employee_table where eid = ?";
+		
+		int count =		jdbcTemplate.update(delete, eid);
+		
+		return count +"record deleted successfully";
+	}
+
 }

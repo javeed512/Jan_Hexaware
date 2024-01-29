@@ -1,0 +1,20 @@
+JSP:
+
+Java server pages , these are dynamic web pages which runs on Web Servers.
+
+JSP Engine/ Jasper Parser is responsible to parse and execute these pages.
+
+JSP Elements:
+
+1. String templates
+2. Scriplets  <%   any java code %>
+3. Directives  <%@ directive-name %>
+
+JSP Implicit Objects/variables
+
+1. out 
+2. session
+3. request
+4. response
+5. application 
+

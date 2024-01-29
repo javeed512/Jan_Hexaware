@@ -13,6 +13,7 @@ import com.hexaware.springbootweb.entity.Employee;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/employees")
@@ -40,13 +41,61 @@ public class EmployeeController { // SERVLET
 	
 	
 	
-	@RequestMapping("/getall")
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Employee>    getAllEmployees() {
+	public String addEmployee(HttpServletRequest request) {
+
+		int eid = Integer.parseInt(request.getParameter("eid"));
+
+		String ename = request.getParameter("ename");
+
+		double salary = Double.parseDouble(request.getParameter("salary"));
+
+		Employee emp = new Employee(eid, ename, salary);
+
+		return  dao.updateEmployee(emp);
+
+	}
+	
+	
+	
+	
+	
+	
+	@RequestMapping("/getall")
+	//@ResponseBody
+	public  String  getAllEmployees(HttpSession session) {
 		
 		
 		
-		return dao.getAll();
+		
+			List<Employee> list =	dao.getAll();
+			
+			session.setAttribute("empList", list);
+		
+		
+		return  "displayAll";     //  /views/displayAll.jsp
+	}
+	
+	
+	@RequestMapping("/get")
+	public String   get() {   // returning  view/page
+		
+		
+		return "success";     //                /views/success.jsp
+	}
+	
+	
+	@RequestMapping("/delete")
+	@ResponseBody
+	public String  delete(HttpServletRequest request) {
+		
+	int eid = Integer.parseInt(request.getParameter("eid"));
+	
+		return	dao.deleteEmployee(eid);
+		
+		
+		
 	}
 	
 	
