@@ -1,0 +1,72 @@
+JSE: (core java)
+Console App/Desktop app
+
+JEE: (Adv java)
+Web App/ Enterprise App
+
+
+Web Application:
+----------------
+Websites 
+Web Application is an application which is hosted on Web servers(Tomcat) so that clients/customers can access it remotely.
+
+Ex: Any website , Flipkart, Facebook , Google , IRCTC , University Websites etc
+
+Servers:
+
+Web server: These are servers which host web applications created by using HTML,SERVLET,JSP etc which will be light weight and accessible within some limited range.
+Ex: Tomcat server, Pivotal server 
+
+Application server: These are servers which host Enterprise applications created by using 
+HTML,SERVLET,JSP,Webservices,Microservices or Adv Libraries in JEE.
+Ex: Weblogic , JBoss, GlassFish , Resin ....
+
+
+MVC Architecture:
+------------------
+Model : Dao which uses models/pojos consider as Model
+
+View : Front End / Presentation layer  developed by using HTML,CSS,JS,JSP etc known as Views.
+
+Controller : Its an Java class which act as a mediator between view and model. 
+              Also known as Servlet class
+
+
+SERVLET:
+--------
+javax.servlet.http;
+
+interfaces:
+----------
+Servlet
+HttpServletRequest
+HttpServletResponse
+ServletConfig
+HttpSession
+
+classes:
+--------
+HttpServlet
+Cookie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
