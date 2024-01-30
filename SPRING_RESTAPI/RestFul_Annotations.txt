@@ -1,0 +1,36 @@
+REST APIs:
+----------
+
+@RestController : It is used for Restful controller to accept rest api requests from clients.
+
+@RequestMapping
+
+
+@RestController =  @Controller + @ResponseBody
+
+
+@GetMapping 
+@PostMapping
+@PutMapping
+@DeleteMapping
+
+@RequestBody
+
+@Pathvariable
+
+
+
+Http methods:
+
+GET - To fetch data from the server backend
+
+POST - To add/post/create new data to the server
+
+PUT -  To  update  existing resource or data on server
+
+DELETE - To delete/remove resource or data from server
+
+
+
+
+
