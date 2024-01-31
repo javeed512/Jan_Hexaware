@@ -1,0 +1,70 @@
+Spring Data JPA:
+Spring Data JPA, part of the larger Spring Data family, makes it easy to easily implement JPA based repositories. This module deals with enhanced support for JPA based data access layers. It makes it easier to build Spring-powered applications that use data access technologies.
+
+Implementing a data access layer of an application has been cumbersome for quite a while. Too much boilerplate code has to be written to execute simple queries as well as perform pagination, and auditing. Spring Data JPA aims to significantly improve the implementation of data access layers by reducing the effort to the amount that’s actually needed. As a developer you write your repository interfaces, including custom finder methods, and Spring will provide the implementation automatically.
+
+
+Spring Data JPA module is introduce in Sprint Boot.
+It provides set of Repositories(interfaces) hiererchy
+
+Repository<Entity,ID>
+CrudRepository<Entity,ID>
+PagingAndSortingRepository<Entity,ID>
+JpaRepository<Entity,ID>
+
+interface CrudRepository<E,ID>
+
+Entity save(Entity entity)    // insert or update
+Optional<T>  findById(ID id)
+Iterable<T>  findAll()
+void deleteById(ID id)
+void delete(T entity)
+
+interface JpaRepository<E,ID>  extends PagingandSortingRepository  extends CrudRepository extends Repository
+
+Steps to implement Spring Data JPA:
+=====================================
+1. Create Entity class with @Entity (class)  and @Id(primary key property) annotations
+
+2. Create User defined Repository interface which extends one of the above repositories inteface
+Note: CrudRepository and JpaRepository are recommend
+Note: We need to create just interface in repository layer , no need of Repository class in spring data jpa.
+3. Autowire Repository object in service layer and called Crud Operation services/methods from parent repository interface.
+
+Entity save(Entity entity)    // insert or update
+Optional<T>  findById(ID id)  // orElse(); --> Entity
+List<T>  findAll()
+void deleteById(ID id)
+void delete(T entity)
+
+
+--------------------------------------
+
+In Spring Data JPA Repository we can declare methods with any property.
+
+1.  Type  findByPropertyName(parameter);
+
+  Ex: findBySalary(double salary);  // select * from employee_details where salary = ?;
+
+2. GreaterThan or LessThan
+
+ Ex:   findBySalaryGreaterThan(double inputsalary); //  select * from employee_details where salary > inputsalary;  
+  Ex:   findBySalaryLessThan(double inputsalary); //  select * from employee_details where salary <  inputsalary;  
+
+In  PagingandSortingRepository we have few methods which help us to select all records in sorted order based on any property.
+
+  findAll(Sorted.by("propertyName"));
+ findAll(Sort.by(Direction.DESC, "doj"));
+
+NOTE: Just call above methods in service layer they already exists in  PagingandSortingRepository
+    
+
+
+
+
+
+
+
+
+
+

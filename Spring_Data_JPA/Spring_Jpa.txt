@@ -1,0 +1,114 @@
+Spring Data JPA:
+================
+Spring Data JPA, part of the larger Spring Data family, makes it easy to easily implement JPA-based (Java Persistence API) repositories. It makes it easier to build Spring-powered applications that use data access technologies.
+
+Implementing a data access layer for an application can be quite cumbersome. Too much boilerplate code has to be written to execute the simplest queries. Add things like pagination, auditing, and other often-needed options, and you end up lost.
+
+Spring Data JPA aims to significantly improve the implementation of data access layers by reducing the effort to the amount that’s actually needed. As a developer you write your repository interfaces using any number of techniques, and Spring will wire it up for you automatically. You can even use custom finders or query by example and Spring will write the query for you!
+
+
+
+
+
+public interface CrudRepository<T, ID> extends Repository<T, ID> {
+
+  <S extends T> S save(S entity);      
+
+  Optional<T> findById(ID primaryKey); 
+
+  Iterable<T> findAll();               
+
+  long count();                        
+
+  void delete(T entity);        
+
+  boolean existsById(ID primaryKey);   
+
+  // … more functionality omitted.
+}
+
+
+
+
+
+public interface PagingAndSortingRepository<T, ID>  {
+
+  Iterable<T> findAll(Sort sort);
+
+  Page<T> findAll(Pageable pageable);
+}
+
+
+
+public interface JpaRepository<T,ID> extends 
+                    CrudRepository<T,ID> , PagingAndSortingRepository<T, ID>  {
+
+
+ void delete(ID primary key)     
+
+ Entity  getById(p.k)
+
+
+}
+
+======================================================
+
+
+public EmployeeRepository extends JpaRepository<Employee,Long>{
+
+	List<Employee>	findByEname(String ename); 
+			// select * from employee_info where ename =?;
+
+	List<Employee>	findBySalary(double salary);
+				// select * from employee_info where salary=?;
+
+
+		List<Employee>	findBySalaryGreaterThan(double salary);
+					// select * from employee_info where salary > ?;
+ 				
+
+
+
+}
+
+
+
+Custome Queries in Spring Data JPA Repositories:
+===============================================
+
+@Query("select e from Employee e where  e.salary Between ?1 and ?2")// JPL QUERY			
+			List<Employee>  getBySalRange(double min, double max);
+
+
+@Query(
+  value = "SELECT * FROM USERS u WHERE u.status = 1", 
+  nativeQuery = true)
+Collection<User> findAllActiveUsersNative();
+
+
+@Query("SELECT u FROM User u WHERE u.status = :status and u.name = :name")
+User findUserByStatusAndNameNamedParams(
+  @Param("status") Integer status, 
+  @Param("name") String name);
+
+
+
+DML:
+-----
+In Repository 
+==============
+			@Modifying
+			@Query("delete from Employee e where e.ename =?1")
+			int  deleteByEname(String ename);
+				
+
+In Service Implementation class:
+===============================
+
+
+@Service
+@Transactional   //compulsory to manage transaction for DML queries
+public class EmployeeServiceImp implements IEmployeeService {
+
+}
+
