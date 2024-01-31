@@ -1,0 +1,22 @@
+
+Assingment Practice:
+
+Consider any one Entity from case study
+Create Spring Data JPA with validations
+
+CRUD Operation
+Custom queries @Query 
+one select
+one DML
+
+===========================
+
+Capstone Project work 31st Jan and 1st feb
+Create Spring Boot project 
+dependencies: spring web , mysql , spring data jpa, validations
+
+1. Create Project and  Empty packages and push project to Github
+2. Create Entity classes (validations also) and Repository 
+3. Mappings for all entities *****
+4. Service Interface with abstract methods and implementation classes
+
