@@ -20,7 +20,7 @@ Note: We need to add spring / spring boot project
 
 Patterns:
 ========
-[A-Z]
+[A-Z]  
 [a-z]
 [A-Za-z]  Ex;  A , b c  x , S i 
 [0-9]    0 , 4 ,5  ,2

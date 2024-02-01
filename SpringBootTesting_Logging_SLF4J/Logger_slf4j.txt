@@ -1,0 +1,69 @@
+As a software developer, do you spend most of your time debugging your code? Going through the entire codebase and still not able to figure out where your code went awry? Here’s where logging comes to the rescue!
+
+Logging is the process of tracking all the events that happen after a piece of code is run. It is a very important aspect of software development as it helps to track where exactly the code crashes and thus eases debugging .
+
+Let’s understand how logging is done in spring boot!
+
+To make logging easier for programmers, Java provides a variety of logging frameworks like : log4J, java.util.logging (JUL), tiny log, logback, etc.
+
+A logging framework can be used to perform all the tasks like setting log file destinations, customizing log messages , etc.
+
+Spring Boot comes with SLF4J inbuilt, which is an abstraction of all these logging frameworks. SLF4J stands for Simple Logging Façade for Java. It allows users to work with any of the logging frameworks with a single dependency.
+
+Every logging framework comes with three elements.
+
+Logger — capture the messages
+Formatter — formats the messages captured by the logger
+Handler — Dispatches the messages by printing them on the console , or storing them in a file , sending an email, etc.
+Let’s go step by step to understand each of these elements.
+
+LOGGER
+To generate loggers , we use the LoggerFactory class of the org.slf4j and the Logger interface is the entry point to slf4j API. The getLogger is a method of LoggerFactory class that takes a string value as a name and provides the logger object of the specified name .
+
+Logger logger = LoggerFactory.getLogger(Controller.class);
+
+What are log levels:
+The messages logged can be of various security levels . Spring Boot supports five log levels which are
+
+ERROR — runtime errors
+DEBUG — Information about the flow of the system
+TRACE — more detailed information about the flow of the system
+WARNING — warning for the errors caused due to the usage of deprecated APIs.
+INFO — events occurring at the run time
+
+
+
+
+
+
+
+Logging pattern controller can be done by developers using following properties in application.properties file.
+
+
+
+
+logging.level.root = INFO
+
+logging.level.com.hexaware.restapi.service= OFF
+
+# for console 
+#logging.pattern.console=%clr(%d{yyyy-MM-dd}){red} %clr([%level]) %m %n
+
+
+# file auto generated with below name extension should be ".log"  --> refresh project to see file updates
+logging.file.name = product_log_file.log
+
+#for file pattern
+logging.pattern.file= %clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){green} [%level] %c{1.} [%t] %m%n
+
+
+
+
+
+
+
+
+
+
+
+
