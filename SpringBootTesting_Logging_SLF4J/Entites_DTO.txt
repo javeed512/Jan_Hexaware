@@ -1,0 +1,29 @@
+
+Entity class:
+
+It is always associated with some Table.
+In Entity classes with we use mappings to map tables
+
+
+Example:
+
+@Entity  ------------> Table
+@Table(name="emp_table")
+class Employee{
+		
+	@Id
+	private int eid;
+	private String ename;
+//Mappings OneToOne , OneToMany , ManyToMany
+
+	// setter , getter ,constructors
+
+}
+
+
+
+DTO/VO class:
+
+Data Transfer Object or View Object
+
+Pojo is known as DTO/VO.

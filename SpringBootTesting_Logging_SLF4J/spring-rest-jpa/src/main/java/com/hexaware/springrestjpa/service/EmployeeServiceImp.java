@@ -9,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Service;
 
+import com.hexaware.springrestjpa.dto.EmployeeDTO;
 import com.hexaware.springrestjpa.entities.Employee;
 import com.hexaware.springrestjpa.repository.EmployeeRepository;
 
@@ -24,9 +25,16 @@ public class EmployeeServiceImp implements IEmployeeService {
 		Logger  logger =	LoggerFactory.getLogger(EmployeeServiceImp.class);
 
 	@Override
-	public Employee addEmployee(Employee employee) {
+	public Employee addEmployee(EmployeeDTO employeeDTO) {
 
-			logger.info(employee + " is Added from Add Service");
+			logger.info(employeeDTO + " is Added from Add Service");
+			
+			Employee employee = new Employee();
+			
+				employee.setEid(employeeDTO.getEid());
+				employee.setEname(employeeDTO.getEname());
+				employee.setSalary(employeeDTO.getSalary());
+			
 		
 		return repo.save(employee);
 	}
@@ -110,7 +118,7 @@ public class EmployeeServiceImp implements IEmployeeService {
 	// input validation
 	
 	
-	public static boolean  validateEmployeeData(Employee emp) {
+	public static boolean  validateEmployeeData(EmployeeDTO emp) {
 		
 		String ename = emp.getEname();
 		

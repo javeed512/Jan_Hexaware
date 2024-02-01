@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hexaware.springrestjpa.dto.EmployeeDTO;
 import com.hexaware.springrestjpa.entities.Employee;
 import com.hexaware.springrestjpa.exception.EmployeeNotFoundException;
 import com.hexaware.springrestjpa.service.EmployeeServiceImp;
@@ -32,9 +33,9 @@ public class EmployeeRestController {
 	
 
 	@PostMapping("/add")
-	public Employee insertEmployee(@RequestBody Employee emp) {
+	public Employee insertEmployee(@RequestBody EmployeeDTO employeeDTO) {
 		
-		boolean  isValid =	EmployeeServiceImp.validateEmployeeData(emp);
+		boolean  isValid =	EmployeeServiceImp.validateEmployeeData(employeeDTO);
 		
 		logger.info("EmployeeRestController executed...");
 		
@@ -42,7 +43,7 @@ public class EmployeeRestController {
 		
 			if(isValid) {
 				
-				employee = service.addEmployee(emp);
+				employee = service.addEmployee(employeeDTO);
 				
 				logger.warn("employee object is not null in RestController");
 			}

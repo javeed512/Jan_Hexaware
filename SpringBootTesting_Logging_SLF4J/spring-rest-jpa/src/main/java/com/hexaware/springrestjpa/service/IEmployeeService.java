@@ -2,12 +2,13 @@ package com.hexaware.springrestjpa.service;
 
 import java.util.List;
 
+import com.hexaware.springrestjpa.dto.EmployeeDTO;
 import com.hexaware.springrestjpa.entities.Employee;
 
 public interface IEmployeeService {
 	
 	
-	public Employee addEmployee(Employee employee);
+	public Employee addEmployee(EmployeeDTO employeeDTO);
 
 	public Employee updateEmployee(Employee employee);
 
