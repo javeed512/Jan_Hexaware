@@ -1,0 +1,16 @@
+Week-3 Assignment:
+-------------------
+Rest API CRUD Operations
+Spring Data JPA , Queries , Mappings
+Loggers,Spring Boot UnitTesting , SonarLint
+
+Revise Miroservices along with practicals.
+
+========================
+Capstone Project:
+=================
+Entities , Mappings , Validations
+Service Interfaces, Service Implements
+Only for service class write test cases / unit testing
+Create RestController for above services
+
