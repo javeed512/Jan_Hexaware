@@ -1,0 +1,34 @@
+What is meant by SSO?
+Single sign-on (SSO) is an identification method that enables users to log in to multiple applications and websites with one set of credentials.
+
+Principles of OAuth2.0
+OAuth 2.0 is an authorization protocol and NOT an authentication protocol. As such, it is designed primarily as a means of granting access to a set of resources, for example, remote APIs or user data. OAuth 2.0 uses Access Tokens.
+
+
+For OAuth2.0  we can use 
+GitHub Server
+Google Server
+Facebook server etc
+
+In Github we need to generate client-id and secret:
+===================================================
+step1 .login to github account
+ste2. Go to settings and next page left side goto developers setting
+step3. OAuth Apps -->  Register a new OAuth application
+
+  Fill the details and Click Register application button.
+step4. Client-id is generated and displayed 
+       Now , click generate new client secret
+
+Note: The callback URL is :  http://localhost:8080/login/oauth2/code/github    or http://localhost:8080/login/oauth2/code/google
+
+Both client id and client secrect should be use/copy in properties file 
+Ex: application.properties file.
+
+
+#GitHub Login using OAuth2
+
+spring.security.oauth2.client.registration.github.client-id=  <copy client id here>
+
+spring.security.oauth2.client.registration.github.client-secret= <copy client secret here>
+
