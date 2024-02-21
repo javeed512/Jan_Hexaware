@@ -1,0 +1,111 @@
+Top 20 Docker Commands
+We have enlisted 20 docker commands to help you navigate through the docker engine seamlessly and get most of your work done. Let us get started. 
+
+Docker version
+Docker search 
+Docker pull
+Docker images
+Docker run 
+Docker ps
+Docker stop 
+Docker restart 
+Docker kill
+Docker exec 
+Docker login
+Docker commit 
+Docker push 
+Docker network 
+Docker history 
+Docker rmi 
+Docker ps -a
+Docker copy
+Docker logs   
+Docker volume 
+Docker logout 
+
+
+
+1.Docker version
+We usually start by finding the installed version of docker that we are working on. Here is how to find it –
+
+greatlearning@greatlearning:/home/greatlearning$ docker --version
+Docker version 18.09.6, build 481bc77
+
+
+2.Docker search 
+The “docker search” command searches for specific images through the Docker hub. This command returns the specific information, including image name, description, automated, official stars, etc. Here is how to use it – 
+
+docker search MySQL
+You can use the Docker Hub website to search through the GUI-based option.
+
+3.Docker pull
+As the name suggests, this command pulls a specific image from the Docker Hub. All you have to do is use the command ‘docker pull’ along with the name of the image. Here is an example of pulling an image without using the tag. 
+
+docker pull --platform Linux/x86_64 MySQL
+Here is an example that demonstrates how to pull an Apache HTTP server image from the Docker repository using the tag -
+Using default tag: latest
+latest: Pulling from library/httpd
+f5d23c7fed46: Pull complete
+b083c5fd185b: Pull complete
+bf5100a89e78: Pull complete
+98f47fcaa52f: Pull complete
+622a9dd8cfed: Pull complete
+Digest: sha256:8bd76c050761610773b484e411612a31f299dbf7273763103edbda82acd73642
+Status: Downloaded newer image for httpd: latest
+greatlearning@greatlearning:/home/greatlearning$
+The tags are used to identify the images inside the Docker hub. If you do not specify a tag, it will use the ‘: latest’ tag by default. 
+
+We can use the command ‘-all-tags’ to pull all the images from the repository for multiple images. 
+
+4.Docker run 
+This command is used to create a container from an image. Here is how to do it –
+
+docker run --env MYSQL_ROOT_PASSWORD=my-secret-pw --detach mysql
+The ‘–detach’ option runs the container, and the ‘–env’ option is used to set the mandatory variable. If you do not use the ‘–name’ option, the docker will randomly assign a name to the container.
+
+5.Docker ps
+This command is used to list all the running containers in the background. Here is how to do it –
+
+docker ps --all
+
+
+6.Docker stop 
+The ‘docker stop’ command stops a container using the container name or its id. Here is how to do it –
+
+docker stop f8c52bedeecc
+Docker restart 
+This command is used to restart the stopped container. It is recommended to use this after rebooting the system. Here is how to do it –
+
+$docker restart f8c52bedeecc
+Docker kill
+This command is used to stop the container immediately by killing its execution. While the ‘docker stop’ command helps shut down the container in its own time, the ‘docker kill’ command stops it at once. Here is to use it –
+
+$docker kill 09ca6feb6efc
+To check whether the container is stopped or killed, use the following command -
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+
+7.Docker exec 
+This command is used to access the container that is running. Here is how to use it –
+
+step 1.docker exec -it mysql-container bash   (enter key)
+step 2.mysql -uroot -pmy-secret-pw       (here root is username and my-secret-pw is password)
+SHOW DATABASES;
+You have to either provide the name or the id of the container, which is "mysql-container"  in this case. The ‘-i’ and ‘-t’ options are used to access the interactive mode. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
