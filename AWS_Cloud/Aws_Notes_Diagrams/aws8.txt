@@ -1,0 +1,75 @@
+AWS Launch Template
+====================
+To create a linux server we need to do lots of configurations and multiple clicks then our sever will be ready. 
+
+To overcome this limitation we need to use lauch template. 
+
+Using launch template we can create a server in just one click.
+
+A launch template is similar to a launch configuration
+It contains instance configuration information to launch an instance. 
+
+It includes the ID of the Amazon Machine Image (AMI), the instance type, a key pair, security groups, and other parameters used to launch EC2 instances.
+
+
+Naming standards for creating servers
+-------------------------------------
+It is highly recommanded to follow naming standards to create a server in aws.
+
+Just by looking at the server we should know following things.
+
+	> What application is running on it.
+		ex:	
+			payment, user, catalog, cart and etc.
+
+	> What environment it is.
+		ex:
+			Dev, QA , Pre-Production, Production.
+
+	> Owner or Location of it.	
+		ex:
+			Diagram: aws8.1	
+
+ex:
+	payment-dev-l01	
+	cart-qa-l02
+	catalog-prod-l03
+
+
+Diagrams: 
+
+Note:
+----
+Q) we can modify the launh template ? 
+
+Yes, we can modify launch template (click on Actions--> modify the template).
+
+Whenever we modify launch template then new version will be created.
+ex:
+	if I change t2-micro to t3-micro then new version will generate.
+
+
+
+Q) After creating a new version can we goback to old version if needed?
+
+ans) 
+
+	Yes, we can goback to old version if needed 
+	(click on Actions-->set default version --> select the template version).
+	In this case our default version will be 1 and latest version is 2.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

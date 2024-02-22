@@ -1,0 +1,126 @@
+Operating System
+===============
+Operating system is a mediator or interface between user and hardware component.
+
+We have types of operating system.
+
+1) GUI  (Graphical User Interface)
+   ex:
+		windows
+	
+2) CLI	(Command Line Interface) 
+   ex:
+		Linux 
+Note:
+-----
+	In the space of operating system , linux is a top layer.
+	99% of enterprise infrastructure is CLI and that too linux.
+
+Importance of linux
+--------------------
+If you don't know AWS and DevOps Aspects.In spite of that company will give you chance to work on their products, if you have strong knowledge on linux.
+
+By keeping the context in our mind , let me start the training on linux.
+
+
+Q) Who is the richest person for a longer time?
+
+Ans) Bill Gates (It's because of licencing model of windows).
+
+Diagram: aws3.1
+
+
+Linus Torwalds is a man behind the linux OS.
+
+He thought, to run operating system why should I buy hardware from you and why have to pay for licencing to it.By keeping these aspects in mind he created on Operating system which is free for every one and everyone should have capability to access code of it. He started an open source project called linux (linux kernel).
+kernel is a first layer of the OS.Every OS is having it's own kernel.
+ex:
+	Open Source Project (linux : linux kernel)
+		> code is open (not proprietory)
+		> Even if you add some features and rebrand it, still has to be an 
+		  Open source.
+		> No need for licence.
+
+	Linux kernel : it is a piece of software which interacts with hardware.
+		> He wants to make a free CLI OS
+		> Should run on any hardware
+		> OS should be open source
+		> GNUX (Generally Not Unix)
+	
+There are 300+ flavours / Distributions in linux(vendors).
+
+All the 300+ operating system are clone either from "RedHat OS" or "Debian".
+
+
+A RedHat linux (RHEL) gives top best customer support.
+ex:
+	suppose if a bank having 1000 linux servers .They have an option to choose
+	any operating system as per they choice.But they will use redhat linux
+	for best customer service.
+
+Diagram: aws3.2 (linux distribution image)
+
+Red Hat licencing is very very costly.
+
+If a company need 1000 linux servers then they have categories their servers into following types.
+
+ex:
+	Production  : (250 : redHat)
+
+	Pre-production (250 pre-prod: redHat)
+
+	QA - (250 pre-prod : centos)
+
+	Dev - (250 pre-prod : centos)
+
+Taking 1000 licences is huge cost to a company.
+
+
+Let see how windows licencing works and linux licencing works.
+
+Diagram: aws3.3
+
+Linux licencing is not based on the User based licencing.
+
+1) It is based on the support
+
+2) If we want 24*7 support
+
+3) If we want 12*5 support
+
+4) text based support
+
+5) call based support 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+ 

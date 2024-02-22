@@ -1,0 +1,62 @@
+How to get objects/files from S3 Bucket to the EC2 instance:
+
+
+Goto bucket click on file/object
+ springboot--aws-app-0.0.1-SNAPSHOT.jar (click on it to get details page Object Overview)
+
+  Just copy url given at bottom of the page
+
+Example:
+https://hexaware-bucket.s3.us-east-2.amazonaws.com/springboot--aws-app-0.0.1-SNAPSHOT.jar
+ 
+Now, Goto EC2 instance terminal 
+ubuntu$  wget    https://hexaware-bucket.s3.us-east-2.amazonaws.com/springboot--aws-app-0.0.1-SNAPSHOT.jar
+
+The above command will download jar file from s3 bucket to the EC2 instance
+
+Now, jar file available inside EC2 instance which can be run to launch application.
+
+ubuntu$ java -jar springboot--aws-app-0.0.1-SNAPSHOT.jar
+
+
+Application will launched.
+
+
+
+
+Note: Ensure that the above spring application port number is register 
+
+Ec2-->Security --> Security Group launch-wizard 
+		Under Inbound Roles select Edit Inbound option
+
+ Click   AddRole button to add new role
+
+	[CustomTCP       8080   Anywhere IPv4]   --> SaveRules
+
+
+
+
+
+
+
+Now , if application is started successfully in EC2 instance anybody can access it by using below DNS URL in browser from anywhere.
+
+
+Public IPv4 DNS
+ ec2-54-90-169-255.compute-1.amazonaws.com:portno/resource
+
+
+
+Example: 
+ ec2-54-90-169-255.compute-1.amazonaws.com:8080/api/hello
+
+
+
+
+	
+
+	 
+
+
+
+

@@ -1,0 +1,172 @@
+About Spot Instances
+====================
+Each and every cloud provide keeping the futures demand in mind , they designed infrastructure.
+ex:
+	 If you observed during the covid all the people started working from 
+	 home and they starting using zoom , goto meeting and etc.
+	
+	All these virtual softwares came with SaaS model and end of the day, 
+	they also depend upon cloud providers.
+
+	Our cloud providers anticipate what is the future demands and by keeping 
+	future demands/Analysis in mind they need to build the infrastruture.
+
+Diagram: aws7.1
+
+In above diagram,  30% to 50% servers are utilized and rest of the 70% to 50% are under utilization or unutilize.
+
+To overcome this limitation Amazon came with a concept called spot instances. 
+
+It is a savier with respect to the billing bcz it will give you 90% to 98% discount.
+
+
+Points to remember when we are using SPOT servers
+--------------------------------------------------
+> Spot servers not for production servers.
+> Spot servers are created only for lower environment i.e 
+	(dev/test/Integration env): Non-Critical server.
+> Spot EC2 servers can't run for more then 24 hours continously.
+> AWS can terminate the spot ec2 instance anytime with or without notice.
+> We have stop option for spot ec2 instance but earlier it was not there.
+> It comes under shared tenancy.
+> If spot instance is terminated in less then one hour then not billing.
+ 
+Diagram: aws7.2
+
+
+Let see how billing works when we shutdown the machine
+==========================================================
+First visit below url to find out what comes in free tier.
+ex:
+	https://aws.amazon.com/free/
+
+Diagram: aws7.3
+
+There are lot of companies who provides spot servers in lesser discount.
+ex:
+	www.spot.io
+
+This "Spot" company associate with major cloud providers.They take spot instances and they do better business.
+
+This type of company coming up by thinking spot as a business.
+
+We can take spot when data is not criticial.
+
+Diagram: aws7.4
+
+In the production we will use 70%-Reserved instances and 30%-Spot instances.
+
+In our training when we are designing our project, we also going to keep costing in mind and we are going to design solution in such a way that , the same project just by changing number of spot or reserved .We should get different sort of servers without changing any thing.
+
+If you join any IT company you can find this type of approach or stratergy to save the cost. 
+
+This information is not confidential , there are many companies published white papers to describes how they save the billings in their companies.
+
+
+Diagrams:
+
+
+Note:
+-----
+Request types are two i.e
+
+1)One-time  : You can create the server but you can't stop.
+
+2)Persistence : you can create the server and shutdown or stop the server.
+
+We need to select persistence as a request type.
+
+
+Interuption behaviour we need to select is "stop".
+
+If server is interrupted by any chance it goes to the shutdown.
+
+To Connect with Xshell we need to type password as "Password123".
+
+
+How do we come to know the instance is a on-demand, reserved or spot instance.
+
+Diagrams
+
+
+Creating sport instance means placing a sport request.
+> A request will be placed 
+> If there are resources available then request will be fullfilled.
+> If resources are not available then request will be in pending state.
+> When request is fullfilled then that request will create a server.
+> If you terminate the spot instance,spot request is going to create one more server.
+ex:
+	Request           ---------> server 
+	Terminate Request ---------> server will be terminated.
+
+Diagrams
+
+Note:
+-------
+If you are a operations guy there is no point , they give you to create a server.
+
+If you are a monitoring guy then you have only read only access.
+
+Based on the designation in a company they will give you privileges.
+
+How this Access dedication works we will see in upcoming service called AWS Identity and Access Management.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+	

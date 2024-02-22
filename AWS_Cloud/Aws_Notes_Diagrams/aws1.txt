@@ -1,0 +1,421 @@
+Types of Applications
+======================
+We have two types of applications.
+
+1) Client Based Application
+
+2) Web Based Application 
+
+1)Client Based Application
+------------------------
+An application running in a user's machine is called client based application.
+
+In general, an application which needs to be installed in a computer is called client based application.
+
+ex:
+	VLC Media player (If we want to watch a movie we need to download a player)	
+
+Note:
+	A client based application can be used by a perticular user.
+
+	All client based applications are ruled out.
+
+
+2) Web Based Application 
+----------------------------
+An application which can be access from anywhere over the internet via browser is called web based application.
+
+Let me show some classic examples of web based application.
+ex:
+	flipkart 
+	
+Note:
+	Flipkart can be access by thousands or lakhs of users across the internet.
+
+
+
+
+Q)How can we develop an application which can be access by millions of users?
+
+ans)
+	First a software developer need to develop an application.
+	Later that application need to be install or deploy on top of the server.
+
+	Diagram: aws1.1
+
+
+
+
+Q)What is the difference between PC and server ?
+
+PC					server
+---------				--------
+A personal computer is designed for	A server is designed to serve for multiple 
+individual user.			users.
+
+It contains Simple structure.		It contains advanced and complex structure.
+
+It supports less storage from gigabytes	It supports large store from terabytes to 
+to terabytes.				petabytes.
+
+Low network capability.			High network capability.
+
+Uses single processor.			Uses multiple processors.
+
+
+
+
+Q)Will company use one server or multiple servers?
+
+Depends upon the scale of the company they will use the servers.
+
+
+In short,companies revenue is completely rely on performance and availability of these machines(servers).So company need to ensure that servers are operating all the time.
+ex:
+	Have you ever heard or seen?
+			Flipkart is down
+			google server is down
+			gmail is down
+			whatapp application was download almost for 2 hours 
+		        Facebook and instagram was download almost for 6 hours.
+
+
+
+To build an application on the top of the servers we need organize the infrastructure.
+
+Each and every IT company will have their own data center.
+
+A data center is a place where we host our servers.
+
+Diagram: aws1.2
+
+Maintaining a data center is a very big deal.
+
+1. Required private and secure place
+2. Server maintainence team (database admin,network admin,monitoring team and etc). 
+3. 24/7 we need to maintain temperature 16 to 19 degree celsius. 
+4. 24/7 Dual power supply  (government and private power supplier)
+5. 24/7 Dual Network (ISP)
+6. Need to follow geographical orders/standards to protect customer data which 
+   contains physical security and network security.
+7. Hardware Refresh (No software updates for a product which no longer support like 
+		     iphone6 and iphone7, need to scrap old hardware which is very 
+	 	    costly to the company)
+ 
+
+
+Q)Do you think is it easy to organize data center?
+
+No, it is not easy to organize the data center.
+
+Specially startup's can't be proceeded because data center is a capital intensive.
+
+
+
+If we see, From 2009 to 2022 number of IT companies are drastically increases 
+due to cloud.
+
+
+
+
+Q)What is Cloud computing ?
+
+Cloud computing is the on-demand delivery of IT resources over the Internet with pay-as-you-go model. 
+
+Example:
+	Assume that my business is a e-commerce.
+	During christmas or festival time I need thousands of servers and 
+	those servers i am using only for limited days.
+
+
+	Q)Do you think it is wise to buy thousands of servers only for limited days 
+	and keeping them ideal for rest of the days? 
+
+	OR 
+
+	Q)I can lease them for few days and return them once it is done?
+
+	answer : lease . 
+
+	That's where cloud providers came into the picture.
+	ex:
+		Amazon
+		Microsoft
+		IBM
+		Google
+		Alibaba
+		and etc.
+
+In 2002,2003 , Amazon they starting their e-commerce , keeping the future demands in mind they got extends amount of hardware and their calculation absolute went wrong.
+
+Whatever the forecasting they have done with respective to utilization it really went bad and they felt that only 20% to 30% of servers they are using.Almost 70% of their prediction went wrong and they left with no choice.
+
+One of the intern of amazon got an idea , why don't we give our excess amount of server on lease for the people who want.In that way idea of cloud came to a picture.
+ex:
+	AWS
+	Azure
+	GCP
+	alibaba cloud
+	IBM cloud
+
+Diagram: aws1.3
+
+In 2004 the concept of cloud started.
+
+
+Q)What is AWS?
+
+AWS stands for Amazon Web Services.
+
+It offers infrastructure as a service.
+
+From 2004 to 2014 they are monopoly in industry.
+
+AWS was a leader for almost 10 years.
+
+Almost 75% to 80% of market occupied by AWS i.e Out of 100 , 75 to 80 customers are aws customers. 
+
+It is one of the leading cloud service provider accross the world.
+
+In 2014 , microsoft Azure came in to a picture.
+
+
+Q)Why to choose AWS?
+
+Before we go to this question , I will ask another question to you.
+
+Q)What is the toothpaste in india?
+
+ans) 
+	Majority of the people say colgate because that product is 
+	register/strike in their mind.
+
+Q)Why to choose AWS?
+
+AWS is been for industry more then a decade.Hence majority of the customers on Amazon cloud and learning AWS is ensure that you will get secure job.
+
+
+AWS cloud, Azure cloud, Google cloud they offer solutions in different 
+business models.
+
+We have three cloud business models.
+
+1) IaS (Infrastructure as a Service) 
+2) PaS (Platform as a Service)
+3) SaS (Software as a Service)
+
+All it comes up and ends up with Shared Responsibility.
+
+As per the expertise of the engineers that our company has , we will choose one.
+
+Diagram: aws1.4
+
+
+Q) Why Cloud DevOps Team?
+-----------------------------
+
+Diagram: aws1.5
+
+If bank is migrating from on-premises to cloud.It is going to cut down thousands of jobs like network team, linux team, storage team and It is about to open/bring cloud and devops team positions.
+
+
+
+Q) Agile Methodology vs WaterFall Model ?
+
+Agile 					WaterFall Model
+----------				----------------
+It processes non-linear,incremental and	It processes linear and sequential approach 
+interactive approach for a software 	for a software design.
+design.
+
+At each incremental approach project 	At the end whole project is tested.
+is tested.
+
+A customer has early and frequent 	A customer only can see that product at the 
+opportunities to look at the product	end of the project.
+and make decisions or changes to the 
+project.
+
+It is unstructured because it is not	It is structured because it is plan oriented.
+plan oriented.
+
+Small projects can be implemented 	All sort of projects can be estimated and	
+quickly.But large projects can't be	implemented. 
+estimated and implemented due to 
+frequent changes.
+
+Diagram: aws1.6
+
+
+
+
+Q)What we are going to cover in our course ?
+
+Diagram: aws1.7
+
+Once if we implement the project.We would like to automate the project by using Bash scripting.It is a linux based scripting.
+
+Using bash scripting we will get some problems and those problems we will solve by using Red Hat Ansible.Ansible is a configuration management tool which is acquired by Red Hat and current Red hat acquired by IBM.So Ansible is a IBM based product.
+
+Jenkin is a automation framework.If we calculate the usage of Jenkin then you can find ,90 out of 100 companies uses Jenkins.Rather then we run the script manually, we can tell to Jenkins to do that.
+
+
+Nexus Repository is an open source repository that supports many artifact formats, including Docker, Java™, and npm. 
+
+AWS Secrets Manager helps us to manage, retrieve, and rotate database credentials, application credentials, OAuth tokens, API keys, and other secrets throughout their lifecycles. 
+
+Terraform is a industries leading thing.It is used to create infrastructure using  code.We can create version infrastructure.
+
+Prometheus is a monitoring tool.Once our project is ready and when we have multiple servers then we required monitoring for how much is the CPU, how much is the memory,
+Wheather services are up or not.If services are not available then to whome it has to be alerted.
+
+Grafana is used to draw nice graphs.
+
+When we have multiple servers then we need to maintain the logs then we need to use 
+ELK (Elasticsearch, Logstash, Kibana).
+
+Git is a free and open source distributed version control system.
+
+Docker and Kubernetes are both important tools for containerization.
+
+Helm is a package manager for Kubernetes.
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

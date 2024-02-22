@@ -1,0 +1,91 @@
+How can we learn linux 
+============================
+1) You can have linux laptop.
+2) You can have a VM on your computers on top of Oracle Box.
+3) Katakoda Sandbox (Test Environment)
+4) Create a server on AWS cloud and start learning linux.
+
+
+
+How to create a linux server in AWS using username with key
+============================================================
+
+step1:
+-------
+	Download and Install Putty software for windows OS.
+	ex:
+		https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
+step2:
+------
+	Login in AWS account to create a linux server.
+
+step3:
+-----
+	Select "US EAST (North Virginia)" as a region.
+
+step4:
+-----
+	Now Launch EC2 Instance using CentOS 7 and SSH key.
+
+step5:
+------
+	Copy the Public IPv4 address from AWS account.
+
+step6:
+------
+	Open the putty from your computer.
+
+step7:
+-------
+	Paste the Public IPv4 address in putty and select SSH private key then open.
+
+step8:
+-------
+	Login to putty terminal as centos after clicking accept button.
+
+step9:
+------
+	Once the practice is completed terminate the server.
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+

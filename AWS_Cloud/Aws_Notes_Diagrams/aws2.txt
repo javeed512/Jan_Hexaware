@@ -1,0 +1,16 @@
+How to create an account in AWS
+================================
+To create AWS account we required following things.
+
+1) Debit/Credit card 
+
+2) Mail Id
+
+3) Maintain 2 rupees in account
+
+Note:
+-------
+If we use debit card to create an account then it will take less then 24 hours.
+If we use credit card to create an account then it will take less then 2 to 3 hours.
+
+   

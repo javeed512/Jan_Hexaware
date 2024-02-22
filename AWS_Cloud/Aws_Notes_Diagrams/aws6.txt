@@ -1,0 +1,120 @@
+How billing works in EC2 service
+=================================
+> Based on the type of server (Instance Type).
+	ex:
+		t1 : 2006 to 2013 (First generation of hardware)
+		t2 : 2014 to 2021 (Second generation of hardware)
+		t3 : 2021 to till date (Third generation of hardware)
+
+Why amazon buy hardware all the time ? bcz there is a concept called hardware 
+refresh.
+
+When they buy hardware from providers like cisco , ibm and etc.They provide support for some extension.
+
+> Based on the OS we are using.
+
+> Based on the size of the Disk(storage).
+
+
+With respect to billing in EC2, there are varieties on instances.
+
+1) On-demand Instance:
+
+In this case  we are not ensure when we are going create server and terminate server.
+On adopt basis , we are creating servers and terminating servers. 
+
+Here billing is very high (> high) 
+
+
+2) Reserved Instance : 
+
+Whenever we have a vision to stay for a long term then we need to use reserved instance.
+
+Typically when we joined a company, our company product manager or company representative talk to AWS TAM (Techical Account Manager).
+
+ex:
+	we will use 1000 cpu and 2TB memory for 3 years
+
+ex:
+	Assume you got a job in Banglore.U went and saw some nice 1BHK flat. 
+
+	You don't know when you training will finish and you don't know when
+	will you move out from banglore.
+
+	If you goto flat owner and say , sir i would like to stay here for one 
+	or two months then owner will say more rent.
+	ex:
+		1BHK : @2 months : 20,000/-  	
+		
+	Another guy said sir i would like to stay here for 1 year to 3 years.
+	how much owner will take the rent guys?
+	ex:	
+		1BHK : @ 1 years/3 years  : 13,000/- (Lease)	
+	
+3) Spot Instance  : Here we will get 95% to 98% discount. spot is gold in company.
+
+
+Let see how can we check the calculations.
+
+Diagrams
+
+On demand : Monthly: 3.07$/Month   -  Yearly : 36.84$/Year
+
+Reserved instance : Monthly: 1.90$/Month - Yearly : 22.8$/Year 
+
+		    Monthly: 1.31/Month  - Yearly : 15.72$/Year ( 3 years commitment)
+
+
+AWS Tenancy 
+===============
+> Shared instances : Here amazon is not having any visibility on flipkart and vice versa.
+
+	
+> Dedicated instances : 
+	In dedicated instance , banks and insaurance companies don't want other 
+	servers should run in the harware where they are running.
+	It is costly to the company.
+
+	
+
+> Dedicated Hosts : 
+
+Applications which are developed on-premises need dedicated server like physical server of a data center.
+
+It describes how much cpu and storage required . It specially designed for you.
+
+It is also known as Bare Metal / Physical server.
+
+Diagram: aws6.last 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

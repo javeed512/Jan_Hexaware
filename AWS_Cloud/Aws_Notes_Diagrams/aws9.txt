@@ -1,0 +1,69 @@
+What is launch configuration
+=============================
+A launch configuration is a template that an EC2 Auto Scaling group uses to launch EC2 instances. 
+
+When you create a launch configuration, you specify information for the instances such as the ID of the Amazon Machine Image (AMI), the instance type, a key pair, one or more security groups, and a block device mapping.
+
+Amazon recommanded not to use launch config instead we can use launch template.
+
+Diagram: aws9.1
+
+
+Q)What is the difference between launch template vs lauch config?
+
+launch template				launch config
+-----------------			----------------
+It is recommanded to use by aws.	It is not recommanded to use by aws.		
+
+It supports versioning.			It does not support versioning
+					(It is immutable).
+
+It supports more features besides 	It supports only auto-scaling.
+auto-scaling.
+
+It supports dedicated hosts.		It does not support dedicated hosts.
+
+It support multiple instance types	It does not support multiple instance types. 
+like on-demand and spot instance.
+
+We can override instance type in temple.We can't override instance type in template.
+
+
+Note:
+-----
+AWS Tenancy  type : 
+
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html
+
+AWS instance type :  
+
+https://aws.amazon.com/ec2/instance-types/
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

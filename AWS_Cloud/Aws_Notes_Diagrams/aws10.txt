@@ -1,0 +1,334 @@
+Let starts with Linux commands
+===============================
+Our main goal is to become AWS engineer or DevOps engineer or site reliability engineer.
+
+Here we will learn linux like Cloud or DevOps engineer but not like linux admin.
+
+At any point of time our main goal should not be deviated.
+
+If you want to learn  in and out of linux, it will take 6 to 7 month of time and later we can go for linux Redhat certification.
+
+Whenever we want to learn linux we need to remember following points.
+
+1. In linux everything is a file
+
+2. Linux is a case sensitive i.e a.txt & A.txt.
+
+3. There is no concept of recycle bin (Permanent Delete).
+
+4. There is no concept of file extension in linux i.e .txt, .ppt, .xlsx.
+
+5. In linux we do everything using commands. 
+
+As we know the ecosystem of windows we should remember above points whenever we want
+to learn/upgrade linux.
+
+Linux commands link:
+---------------------
+https://github.com/b54-clouddevops/Linux-Notes
+
+
+There are 300+ flavors of Linux :
+
+Kali Linux :  
+		Majority ethical hacking ppl will use this Flavor
+
+Corporate : 
+		RedHat , CentOS ,  Ubuntu , Fedora , IBM AIX , 
+		HP_Unix , Cisco Unix ,OEL.
+
+We are going to use CentOS7 for our classes.
+
+linux command syntax
+---------------------
+	# commandName  {options}  {inputs}
+
+
+1)uname
+---------
+uname command gives operating system name which we are using.
+
+It will not give you flavour or  vendor or distribution.
+
+ex:
+	input:
+		uname 
+
+	output:
+		linux 
+
+2)man uname
+------------
+man command in Linux is used to display the user manual of any command that we can run on the terminal. 
+ex:
+	input:
+		man uname 
+		man -a  (It prints all information)
+		man -s  (It prints kernel name)
+		man -v  (It prints kernel version)
+		man -m  (It prints machine type)
+		man -r  (It prints kernel release)
+		 
+
+In linux there are two types of users.
+
+1) Privileged User (root user) : #
+
+2) Normal User 		       : $ 
+
+Note:
+-----
+In windows we have adminstrator user as a privileged user. 
+
+
+3) whoami
+-----------
+The whoami command allows Linux users to see the currently logged-in user.
+ex:
+	input:
+		whoami
+
+	output:
+		centos 
+
+4)sudo su –
+-----------
+Therefore sudo su - will put you into a root environment but it will ask you for your user password instead of the root password (once sudo has given you root privileges, su - can be executed with no password).
+ex:
+	input:
+		sudo su - 
+		whoami 
+
+	output:
+		root 
+
+5) exit
+----------
+A exit command in linux is used to exit the shell where it is currently running.
+ex:
+	input:
+		exit 
+
+
+Q)If I ask you, what is the resources of your computer?
+
+ex:
+	Control Panel\System and Security\System 
+
+
+6) cat /etc/*release
+---------------------
+A cat command is used to read a file.
+
+A "/etc" is a directory which has all the files related to system.
+
+Here '*' means anything starts with release. 
+
+ex:
+	input:
+		cat /etc/*release 
+
+Note:
+------
+	In linux we will use forward slash(/) in commands.
+	In windows we will use backward slash(\) in commands.
+
+
+7) cat /proc/cpuinfo
+----------------------
+A cat command is used to read a file.
+
+A "proc" is a folder which contains processor related information.
+
+A "cpuinfo" is a file which is present in proc directory and it holds cpu info.
+
+ex:
+	input:
+		cat /proc/cpuinfo
+
+
+8) cat /proc/meminfo
+----------------------
+A cat command is used to read a file.
+
+A "proc" is a folder which contains processor related information.
+
+A "meminfo" is a file which is present in proc directory and it holds memory info.
+
+ex:
+	input:
+		cat /proc/meminfo
+
+
+Diagram: aws10.1
+
+
+9) lsblk
+------------
+lsblk stands for list the blocks.
+
+It will show how many disks are attached to linux.
+
+ex:
+	input:
+		lsblk 
+
+10) df
+-------
+df stands for display the file system.
+
+df command is used to display the amount of disk space available on the file system
+in byte format.
+
+ex:
+	input:
+		df 
+
+Note:
+----
+	It will display the disk with byte format.
+
+11) df -h
+------------
+df stands for display the file system.
+
+Here -h stands for human readable format.
+
+df command is used to display the amount of disk space available on the file system
+in human readable format.
+
+ex:
+	input:
+		df -h
+
+Note
+-----
+	How do we know -h flag is for human understandable.
+
+
+12) man df
+-----------
+man command in Linux is used to display the user manual of any command that we can run on the terminal.
+
+df displays the amount of disk space available on the file system.
+
+ex:
+	input:
+		man df
+
+
+
+Q)Can we change disk space in aws?
+
+Yes, it is possible you need to goto EC2 instance and need to do it from there.
+
+We can upgrade the desk space but we can't shrink.
+
+
+Note:
+-------
+If your server is is in us-east-1d then you need to create the disk in us-east-1d.
+
+Let see how to create disk by using EBS.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+	
+	
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+

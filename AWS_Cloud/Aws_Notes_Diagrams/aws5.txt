@@ -1,0 +1,55 @@
+How to create a linux server in AWS using username with password
+============================================================
+
+step1:
+-------
+	Download and Install xShell software for windows OS.
+	ex:
+		https://www.netsarang.com/en/free-for-home-school/
+step2:
+------
+	Login in AWS account to create a linux server.
+
+step3:
+-----
+	Select "US EAST (North Virginia)" as a region.
+
+step4:
+-----
+	Now Launch EC2 Instance "Lap-Server-With-Password" using CentOS 7 .
+
+step5:
+------
+	Copy the Public IPv4 address from EC2 Instance.
+
+step6:
+------
+	Open the xShell from your computer.
+
+step7:
+-------
+	Type below command in xShell terminal.
+	ex:
+		$ ssh centos@54.147.252.74
+
+step8:
+-------
+	Enter the password.
+	ex:	
+		password: Password123
+step9:
+------
+	Once the practice is completed terminate the server.
+
+Note:
+-----
+	If we want to connect with putty we can do it.
+	Open the putty and type the IPv4 address.
+
+
+
+
+
+
+
+
